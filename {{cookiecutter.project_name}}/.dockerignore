@@ -27,7 +27,7 @@ __pycache__/
 
 # Virtual environments
 .venv
-venv
+../venv
 .DS_Store
 .AppleDouble
 .LSOverride

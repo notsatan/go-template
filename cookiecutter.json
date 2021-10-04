@@ -1,0 +1,5 @@
+{
+    "project_name": "go-template",
+    "module_root": "github.com/notsatan",
+    "module_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}"
+}

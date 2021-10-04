@@ -1,3 +1,4 @@
+{% raw %}
 name-template: 'v$RESOLVED_VERSION 🌈'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
@@ -50,3 +51,4 @@ template: |
   ## Changes
 
   $CHANGES
+{% endraw %}

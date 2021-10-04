@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestProjectName(t *testing.T) {
-	if ProjectName() != Title {
+	if ProjectName() != title {
 		t.Errorf("(/main) project title does not match")
 	}
 }

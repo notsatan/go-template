@@ -1,3 +1,4 @@
+{% raw %}
 # Runs on every push/pull/commit. Will run the latest code against a series of linters.
 name: Linter
 
@@ -50,3 +51,4 @@ jobs:
 
           # Optional: show only new issues if it's a pull request. The default value is `false`.
           # only-new-issues: true
+{% endraw %}
