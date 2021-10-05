@@ -6,9 +6,10 @@ Work in progress.
 
 ### To-Do
   - [x] ~~Cookiecutter template for the project~~ (Addressed in [#01](../../pull/01))
+  - [x] ~~Avoid double triggers for workflows in branches with open PRs~~ (Addressed in [#02](../../pull/02))
   - [ ] Improve this readme (seriously!)
   - [ ] Add license options
-  - [ ] Avoid double triggers for workflows in branches with open PRs
+  - [ ] Allow test modes - `quick`, `medium` and `complete`
 
 
 #### Granualar Controls
