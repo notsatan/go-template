@@ -27,12 +27,6 @@ jobs:
           path: go-template
           key: go-template-${{ hashFiles('go.mod') }}-${{ matrix.go-version }}
 
-      - name: Shadow
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: shadow
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
