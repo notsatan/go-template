@@ -1,23 +1,18 @@
 {% raw %}
-# Generates binaries/executables for every release made on Github, and uploads the
-# said binaries with the release.
-#
-# Note: Can alternatively use the `build-script.sh` bash script to generate binaries
-# locally - will need to be manually uploaded in this case.
 name: Release Drafter
 
 on:
   push:
     branches:
-      - '**'
-      - '!rt**'    # ignore rapid-testing branches - can be branches such as "rt-0.0.1"
-      - '!docs**'  # ignore docs branch(es) - can be branches such as "docs-0.0.1"
+      - '*'
+  pull_request:
+    types: [ opened, reopened ]
 
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "master"
+      # Drafts release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5.12.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

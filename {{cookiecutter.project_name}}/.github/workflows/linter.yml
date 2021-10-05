@@ -1,13 +1,12 @@
 {% raw %}
-# Runs on every push/pull/commit. Will run the latest code against a series of linters.
 name: Linter
 
 on:
   push:
-    branches:
-      - '**'
-      - '!rt**'    # ignore rapid-testing branches - can be branches such as "rt-0.0.1"
-      - '!docs**'  # ignore docs branch(es) - can be branches such as "docs-0.0.1"
+    branches:   # not sure if this is needed
+      - '*'
+  pull_request:
+    types: [ opened, reopened ]
 
 jobs:
   setup:
