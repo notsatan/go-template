@@ -1,13 +1,12 @@
 {% raw %}
-# Run automated test with every push/pull.
 name: CI
 
 on:
   push:
     branches:
-      - '**'
-      - '!rt**'    # ignore rapid-testing branches - can be branches such as "rt-0.0.1"
-      - '!docs**'  # ignore docs branch(es) - can be branches such as "docs-0.0.1"
+      - '*'
+  pull_request:
+    types: [ opened, reopened ]
 
 jobs:
   test:
@@ -41,7 +40,6 @@ jobs:
       - name: Test
         run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic -gcflags=-l
 
-      # Note: disable/remove this job if you aren't using Codecov.
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
         with:

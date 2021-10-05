@@ -1,13 +1,12 @@
 {% raw %}
-# Runs on every push/pull/commit. Will run the latest code against a series of linters.
 name: Linter
 
 on:
   push:
-    branches:
-      - '**'
-      - '!rt**'    # ignore rapid-testing branches - can be branches such as "rt-0.0.1"
-      - '!docs**'  # ignore docs branch(es) - can be branches such as "docs-0.0.1"
+    branches:   # not sure if this is needed
+      - '*'
+  pull_request:
+    types: [ opened, reopened ]
 
 jobs:
   setup:
@@ -27,12 +26,6 @@ jobs:
         with:
           path: go-template
           key: go-template-${{ hashFiles('go.mod') }}-${{ matrix.go-version }}
-
-      - name: Shadow
-        uses: grandcolline/golang-github-actions@v1.1.0
-        with:
-          run: shadow
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
