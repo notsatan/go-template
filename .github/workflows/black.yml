@@ -2,14 +2,10 @@ name: Black
 
 on:
   push:
-    branches-ignore:
-      - 'rt-**'    # ignore rapid-testing branches
-      - 'docs**'  # ignore docs branch(es)
+    branches:
+      - '**' 
   pull_request:
     types: [ opened, reopened ]
-    branches-ignore:
-      - 'rt-**'
-      - 'docs**'
 
 jobs:
   lint:
