@@ -1,7 +1,7 @@
 ### Simply create the `tmp`, `bin` and `coverage` directories
 
 from os import mkdir, remove
-from os.path import join
+from os.path import join, exists
 from shutil import rmtree
 from pathlib import Path
 from sys import exit
@@ -41,6 +41,10 @@ def remove_codecov(*, force: bool = False):
 
     if not codecov_needed or force:
         # If Codecov is not needed, delete `codecov.yml`
+
+        if not exists("./codecov.yml"):
+            return False  # The file to delete does not exist
+
         remove("codecov.yml")
         return True
 
@@ -55,6 +59,9 @@ def remove_workflows(*, force: bool = False):
     actions_needed: bool = bool("{{ cookiecutter.use_github_actions }}".lower() == "y")
 
     if not actions_needed or force:
+        if not exists("./.github.yml"):
+            return False  # The directory to delete does not exist
+
         rmtree("./.github", ignore_errors=True)
 
         # Since workflows are to be removed, remove `codecov.yml` as well
