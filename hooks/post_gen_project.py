@@ -15,7 +15,6 @@ CUR_DIR = Path.cwd().absolute()
 temp_directories: List[str] = [
     "bin",
     "coverage",
-    "tmp",
 ]
 
 
