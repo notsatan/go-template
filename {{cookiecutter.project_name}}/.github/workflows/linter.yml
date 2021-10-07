@@ -33,11 +33,8 @@ jobs:
           # Must be specified without patch version: we always use the latest patch version.
           version: v1.29
 
-          # Optional: if set to true then the action will use pre-installed Go
-          # skip-go-installation: true
-
-          # Optional: working directory, useful for mono-repos
-          # working-directory: somedir
+          # If set to true then the action will use pre-installed Go
+          skip-go-installation: true
 
           # Optional: golangci-lint command line arguments.
           # args: --issues-exit-code=0
