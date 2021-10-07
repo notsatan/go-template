@@ -15,7 +15,7 @@ Work in progress.
 #### Granualar Controls
 
 Allow users to be more selective about what they want, should be able to selecitvely include or exclude this stuff
- - [ ] Github workflows
+ - [x] ~~Github workflows~~ (Addressed in [#04](../../pull/04))
  - [ ] Makefile
  - [ ] Build/Setup scripts
  - [x] ~~Codecov settings - remove `codecov.yml` file as well if not required~~ (Addressed in [#03](../../pull/03))
