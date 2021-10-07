@@ -1,19 +1,24 @@
 codecov:
+  # CI Pipeline fails if code-coverage does not meet standards
   require_ci_to_pass: yes
 
 coverage:
   precision: 2
   round: down
-  range: "10...100"
+  range: "75...90"   # code coverage between 75-90% would be okay
   status:
     project:
+      # Comparisions made against base of PR, or parent commit
       default:
-        threshold: 10%
-        target: 50%
+        threshold: 20%  # Coverage can drop by at most 20% and still pass
+        target: 70%     # Coverage below 70% is a fail
+    
     patch:
+      # Measures lines modified in an individual commit/PR
       default:
-        threshold: 10%
-        target: 10% # Change this value after the initial release
+        threshold: 30%
+        target: 70%
+
 parsers:
   gcov:
     branch_detection:
