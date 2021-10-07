@@ -34,12 +34,13 @@ help: Makefile
 	@sed -n 's/^[ \t]*##//p' $< | column -t -s ':' |  sed -e 's/^//'
 	@echo
 
-
 .PHONY: local-setup
 ## `local-setup`: Setup development environment locally
 local-setup:
+	@echo "  >  Ensuring directory is a git repository"
+	git init &> /dev/null
 	@echo "  >  Installing pre-commit"
-	pip install pre-commit
+	pip install pre-commit &> /dev/null
 	pre-commit install
 	@echo "  >  Installing GolangCI-Lint"
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
@@ -60,7 +61,6 @@ codestyle:
 	@echo -e "\n\t> Running Golang CI Lint"
 	@golangci-lint run --fix
 
-
 .PHONY: checkstyle
 ## `checkstyle`: Run linter(s) and check code-style
 checkstyle:
@@ -68,16 +68,40 @@ checkstyle:
 	@golangci-lint run
 
 
-.PHONY: test
-## :
-## `test`: Run tests and generate coverage report
-test:
+# Delibrately not revealing this command - designed to be consumed internally
+.PHONY: --test-runner
+--test-runner:
 	@go test ./... -race -covermode=atomic -coverprofile=./coverage/coverage.txt -gcflags=-l
 	@go tool cover -html=./coverage/coverage.txt -o ./coverage/coverage.html
 
+.PHONY: test
+## :
+## `test`: Run fast and medium tests
+test: export FAST_TEST="true"
+test: export MEDIUM_TEST="true"
+test: --test-runner
+
+.PHONY: fast-test
+## `fast-test`: Selectively run fast tests
+fast-test: export FAST_TEST="true"
+fast-test: --test-runner
+
+.PHONY: medium-test
+## `medium-test`: Selectively run medium tests
+medium-test: export MEDIUM_TEST="true"
+medium-test: --test-runner
+
+.PHONY: slow-test
+## `slow-test`: Selectively run long tests
+slow-test: export SLOW_TEST="true"
+slow-test: --test-runner
+
 
 .PHONY: test-suite
-## `test-suite`: Check-styles and run tests with a single command
+## `test-suite`: Checkstyle and run ALL tests
+test-suite: export FAST_TEST="true"
+test-suite: export MEDIUM_TEST="true"
+test-suite: export SLOW_TEST="true"
 test-suite: checkstyle test
 
 
@@ -103,6 +127,7 @@ docker-gen:
 clean-docker:
 	@echo Removing docker $(IMAGE):$(VERSION) ...
 	@docker rmi -f $(IMAGE):$(VERSION)
+
 
 ## :
 ##  NOTE: All docker-related commands can contain `IMAGE`
