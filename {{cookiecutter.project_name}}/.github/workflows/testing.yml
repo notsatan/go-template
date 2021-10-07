@@ -39,7 +39,11 @@ jobs:
 
       - name: Test
         run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic -gcflags=-l
+{% endraw %}
 
+{%- if cookiecutter.use_codecov.lower() == 'y' -%}
+{% raw %}
+      # Generate a Codecov report
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
         with:
@@ -51,3 +55,4 @@ jobs:
           path_to_write_report: ./coverage/codecov_report.gz
           verbose: true
 {% endraw %}
+{% endif %}

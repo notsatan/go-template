@@ -1,6 +1,6 @@
 ### Simply create the `tmp`, `bin` and `coverage` directories
 
-from os import mkdir
+from os import mkdir, remove
 from os.path import join
 from pathlib import Path
 from sys import exit
@@ -18,6 +18,18 @@ temp_directories: List[str] = [
 ]
 
 
+def remove_codecov():
+    """
+    Removes `codecov.yml` file from the project root if Codecov is not being used
+    """
+
+    codecov_needed: bool = bool("{{ cookiecutter.use_codecov }}".lower() == "y")
+
+    if not codecov_needed:
+        # If Codecov is not needed, delete `codecov.yml`
+        remove("codecov.yml")
+
+
 def create_temp_directories():
     """
     Creates an empty directory for `directories`, places a gitignore file inside them
@@ -33,6 +45,7 @@ def create_temp_directories():
 
 runners: Callable[[], None] = [
     create_temp_directories,
+    remove_codecov,
 ]
 
 for runner in runners:
