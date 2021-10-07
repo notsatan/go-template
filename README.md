@@ -18,6 +18,6 @@ Allow users to be more selective about what they want, should be able to selecit
  - [ ] Github workflows
  - [ ] Makefile
  - [ ] Build/Setup scripts
- - [ ] Codecov settings - remove `codecov.yml` file as well if not required
+ - [x] ~~Codecov settings - remove `codecov.yml` file as well if not required~~ (Addressed in [#03](../../pull/03))
  - [ ] Docker
  - [ ] PreCommit - (check if pre-commit can be installed during the setup as well)
