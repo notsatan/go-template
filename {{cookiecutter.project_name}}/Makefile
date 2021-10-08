@@ -40,7 +40,7 @@ local-setup:
 	@echo "  >  Ensuring directory is a git repository"
 	git init &> /dev/null
 	@echo "  >  Installing pre-commit"
-	pip install pre-commit &> /dev/null
+	pip install --upgrade pre-commit &> /dev/null
 	pre-commit install
 	@echo "  >  Installing GolangCI-Lint"
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
