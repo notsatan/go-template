@@ -476,7 +476,6 @@ linters:
     - errorlint
     - exhaustive
     - forbidigo
-    - gochecknoinits
     - gci
     - gocognit
     - goconst
@@ -515,17 +514,8 @@ linters:
   # Interesting linters - enable if they fit your needs
   # - bodyclose
   # - godot
+  # - gochecknoinits
   # - godox
   # - nlreturn
   # - paralleltest
   # - tparallel
-
-
-  # don't enable:
-  # - asciicheck
-  # - gochecknoglobals
-  # - gocognit
-  # - goerr113
-  # - prealloc
-  # - testpackage
-  # - wsl
