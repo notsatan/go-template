@@ -3,5 +3,6 @@
     "module_root": "github.com/notsatan",
     "module_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "use_codecov": "y",
-    "use_github_actions": "y"
+    "use_github_actions": "y",
+    "use_precommit": "y"
 }

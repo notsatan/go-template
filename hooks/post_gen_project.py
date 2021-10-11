@@ -65,6 +65,26 @@ def remove_workflows(*, force: bool = False):
         remove_codecov(force=True)
 
 
+def precommit_handler():
+    """
+    If pre-commit is not to be used, removes pre-commit configuration file, and the Github workflow
+    for the same
+    """
+
+    use_precommit: bool = bool("{{ cookiecutter.use_precommit }}".lower() == "y")
+    if use_precommit:
+        return
+
+    config_file: str = join(CUR_DIR, ".pre-commit-config.yaml")
+    workflow: str = join(CUR_DIR, ".github", "workflows", "pre-commit.yml")
+
+    if exists(config_file):
+        remove(config_file)
+
+    if exists(workflow):
+        remove(workflow)
+
+
 runners: Callable[[Optional[Any]], None] = [
     create_temp_directories,
     remove_codecov,
