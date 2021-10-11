@@ -38,11 +38,12 @@ def remove_codecov(*, force: bool = False):
 
     if not codecov_needed or force:
         # If Codecov is not needed, delete `codecov.yml`
+        dest_path: str = join(CUR_DIR, ".codecov.yml")
 
-        if not exists("./codecov.yml"):
+        if not exists(dest_path):
             return False  # The file to delete does not exist
 
-        remove("codecov.yml")
+        remove(dest_path)
         return True
 
     return False
@@ -56,10 +57,11 @@ def remove_workflows(*, force: bool = False):
     actions_needed: bool = bool("{{ cookiecutter.use_github_actions }}".lower() == "y")
 
     if not actions_needed or force:
-        if not exists("./.github.yml"):
+        dest_path: str = join(CUR_DIR, ".github")
+        if not exists(dest_path):
             return False  # The directory to delete does not exist
 
-        rmtree("./.github", ignore_errors=True)
+        rmtree(dest_path, ignore_errors=True)
 
         # Since workflows are to be removed, remove `codecov.yml` as well
         remove_codecov(force=True)
