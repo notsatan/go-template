@@ -1,9 +1,44 @@
 default_stages: [ commit, push ]
-fail_fast: true
+fail_fast: true   # stop running hooks at the first failure
+minimum_pre_commit_version: 2.15.0
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.5.0
+    rev: v4.0.1
     hooks:
+
+      # Verify syntax
       - id: check-yaml
-      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-xml
+
+      # Checkers
+      - id: check-merge-conflict    # check for merge conflict string
+      - id: detect-private-key      # check for existence of private keys
+
+      # Implicit minor corrections to files
+      - id: end-of-file-fixer       # ensure all files end with a new line
+      - id: trailing-whitespace     # trim trailing whitespaces
+
+      # Good practices for executables/scripts
+      - id: check-executables-have-shebangs       # non-binary executables have shebang
+      - id: check-shebang-scripts-are-executable  # verify shebang scripts are executable
+
+      # Pretty format JSON files implicitly
+      - id: pretty-format-json
+        args: ['--autofix']
+
+      # Debatable -- for most projects adding files larger than 10 MB is likely to be 
+      # a mistake instead of a requirement. Remove this if needed
+      - id: check-added-large-files       # fails if a file larger than 10 MB exists
+        args: ['--maxkb=10240', '--enforce-all']
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.5
+    hooks:
+      - id: git-check     # check for git conflict markers and whitespace errors - uses git internally
+
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v1.42.1
+    hooks:
+      - id: golangci-lint
