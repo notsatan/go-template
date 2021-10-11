@@ -139,12 +139,14 @@ linters-settings:
       - performance
       - diagnostic
       - opinionated
-      - performance
       - style
-      - security
 
-    disabled-tags:
-      - experimental
+      # Do not add security tag - the version of Go-Critic used in GolangCI does not
+      # support this tag (yet)
+      # - security
+
+    # disabled-tags:
+    #   - experimental
 
     # settings passed to gocritic.
     # the settings key is the name of a supported gocritic checker.
@@ -491,19 +493,16 @@ linters:
     - ifshort
     - lll
     - makezero
-    - maligned
     - misspell
     - nakedret
     - nestif
     - nilerr
-    - nilnil
     - noctx
     - nolintlint
     - predeclared
     - revive
     - stylecheck
     - tagliatelle
-    - tenv
     - thelper
     - unconvert
     - unparam
@@ -519,3 +518,8 @@ linters:
   # - nlreturn
   # - paralleltest
   # - tparallel
+
+  # Unreleased - linters that can be useful, but haven't been released in the stable
+  # version
+  #  - nilnil
+  #  - tenv

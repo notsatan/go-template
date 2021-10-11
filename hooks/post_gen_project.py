@@ -1,5 +1,3 @@
-### Simply create the `tmp`, `bin` and `coverage` directories
-
 from os import mkdir, remove
 from os.path import join, exists
 from shutil import rmtree
