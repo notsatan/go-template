@@ -12,5 +12,9 @@
     ],
     "use_codecov": "y",
     "use_precommit": "y",
-    "use_github_actions": "y"
+    "use_github_actions": "y",
+    "go_version": [
+        "1.17",
+        "1.16"
+    ]
 }

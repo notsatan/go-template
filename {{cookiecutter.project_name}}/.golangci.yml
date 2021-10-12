@@ -217,7 +217,7 @@ linters-settings:
 
   gofumpt:
     # select the Go version to target. The default is `1.15`.
-    lang-version: "1.16"
+    lang-version: "{{ cookiecutter.go_version }}"
 
     # choose whether or not to use the extra rules - disabled by default
     extra-rules: true
@@ -253,7 +253,7 @@ linters-settings:
     #   - G204
 
   gosimple:
-    go: "1.16"          # version to target - default is '1.13'
+    go: "{{ cookiecutter.go_version }}"          # version to target - default is '1.13'
     checks: [ "all" ]   # https://staticcheck.io/docs/options#checks for more info
 
   govet:
@@ -370,12 +370,12 @@ linters-settings:
 
   staticcheck:
     # Staticcheck is a go vet on steroids, applying a ton of static analysis checks
-    go: "1.16"            # go version to target. The default is '1.13'
+    go: "{{ cookiecutter.go_version }}"            # go version to target. The default is '1.13'
     checks: [ "all" ]     # https://staticcheck.io/docs/options#checks for more info
 
   stylecheck:
     # Stylecheck is a replacement for golint
-    go: "1.16"      # go version to target. default is '1.13'
+    go: "{{ cookiecutter.go_version }}"      # go version to target. default is '1.13'
     checks: [ "all"]
     dot-import-whitelist:
       - fmt
@@ -414,7 +414,7 @@ linters-settings:
 
   unused:
     # Checks code for unused constants, variables, functions and types
-    go: "1.16"      # go version to target. The default is '1.13'
+    go: "{{ cookiecutter.go_version }}"      # go version to target. The default is '1.13'
 
   whitespace:
     # Tool for detection of leading and trailing whitespace - checks for unnecessary
