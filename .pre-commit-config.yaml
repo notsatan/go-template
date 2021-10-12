@@ -6,12 +6,6 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
-
-      # Verify syntax
-      - id: check-yaml
-      - id: check-json
-      - id: check-xml
-
       # Checkers
       - id: check-merge-conflict    # check for merge conflict string
       - id: detect-private-key      # check for existence of private keys
@@ -38,7 +32,7 @@ repos:
     hooks:
       - id: git-check     # check for git conflict markers and whitespace errors - uses git internally
 
-  - repo: https://github.com/golangci/golangci-lint
-    rev: v1.42.1
+  - repo: https://github.com/psf/black
+    rev: 21.9b0
     hooks:
-      - id: golangci-lint
+      - id: black

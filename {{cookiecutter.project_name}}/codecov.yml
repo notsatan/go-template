@@ -12,7 +12,7 @@ coverage:
       default:
         threshold: 20%  # Coverage can drop by at most 20% and still pass
         target: 70%     # Coverage below 70% is a fail
-    
+
     patch:
       # Measures lines modified in an individual commit/PR
       default:

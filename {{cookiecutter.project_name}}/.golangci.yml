@@ -86,7 +86,7 @@ linters-settings:
   exhaustive:
     # check switch statements in generated files also
     check-generated: false
-    # indicates that switch statements are to be considered exhaustive if a 'default' 
+    # indicates that switch statements are to be considered exhaustive if a 'default'
     # case is present, even if all enum members aren't listed in the switch
     default-signifies-exhaustive: false
 
@@ -103,7 +103,7 @@ linters-settings:
     statements: 25
 
   gci:
-    # put imports beginning with prefix after 3rd-party packages; only support one 
+    # put imports beginning with prefix after 3rd-party packages; only support one
     # prefix - if not set, uses goimports.local-prefixes
     local-prefixes: github.com/org/project
 
@@ -202,7 +202,7 @@ linters-settings:
     capital: true
 
   godox:
-    # report any comments starting with keywords, useful for TODO or FIXME comments 
+    # report any comments starting with keywords, useful for TODO or FIXME comments
     # left in the code accidentally, and should be resolved before merges
     keywords: # default keywords are TODO, BUG, and FIXME
       - TODO
@@ -268,11 +268,11 @@ linters-settings:
 
     # enable or disable analyzers by name
     # run `go tool vet help` to see all analyzers
-    
+
     # enable:
     #   - atomicalign
     enable-all: true
-    
+
     # disable:
     #   - shadow
     disable-all: false
@@ -289,7 +289,7 @@ linters-settings:
       # - github.com/sirupsen/logrus: "logging is allowed only by logutils.Log"
 
   ifshort:
-    # max length of variable declaration measured in number of lines, beyond which 
+    # max length of variable declaration measured in number of lines, beyond which
     # linter won't suggest using short syntax - higher priority than `max-decl-chars`
     max-decl-lines: 1
 
@@ -338,7 +338,7 @@ linters-settings:
 
   nlreturn:
     # Checks for a new line before return and branch statements.
-    # size of the block (including return statement) that is still "OK" - so no return 
+    # size of the block (including return statement) that is still "OK" - so no return
     # split required.
     block-size: 1
 
@@ -395,20 +395,20 @@ linters-settings:
         mapstructure: kebab
 
   tenv:
-    # the option `all` will run against whole test files (`_test.go`) regardless of 
-    # method/function signatures. 
-    # by default, only methods that take `*testing.T`, `*testing.B`, and `testing.TB` 
+    # the option `all` will run against whole test files (`_test.go`) regardless of
+    # method/function signatures.
+    # by default, only methods that take `*testing.T`, `*testing.B`, and `testing.TB`
     # as arguments are checked.
     all: false
 
   unparam:
     # Reports unused function parameters
 
-    # inspect exported functions, default is false. Set to true if no external 
+    # inspect exported functions, default is false. Set to true if no external
     # program/library imports your code.
-    # Side Note: if you enable this setting, unparam will also report false-positives in 
-    # text editors - if it's called for subdir of a project, it won't find external 
-    # interfaces. All text editor integrations with `golangci-lint` call it on a 
+    # Side Note: if you enable this setting, unparam will also report false-positives in
+    # text editors - if it's called for subdir of a project, it won't find external
+    # interfaces. All text editor integrations with `golangci-lint` call it on a
     # directory with the changed file.
     check-exported: false
 
@@ -417,7 +417,7 @@ linters-settings:
     go: "1.16"      # go version to target. The default is '1.13'
 
   whitespace:
-    # Tool for detection of leading and trailing whitespace - checks for unnecessary 
+    # Tool for detection of leading and trailing whitespace - checks for unnecessary
     # newlines at the start and end of functions, if, for, etc.
     multi-if: true    # Enforces newlines (or comments) after multi-line if statement
     multi-func: true  # Enforces newlines (or comments) after multi-line functions
@@ -454,7 +454,7 @@ linters-settings:
 
 linters:
   # do not use `enable-all`: it's deprecated and will be removed soon.
-  
+
   disable-all: true   # disable all, selectively enable what is needed
   enable:
     # Defaults

@@ -12,7 +12,7 @@ categories:
   - title: ':penguin: Other Updates'
     labels:
       - 'Update'
-      - 'Update' 
+      - 'Update'
   - title: ':turtle: Minor Updates'
     labels:
       - 'minor'
@@ -25,7 +25,7 @@ categories:
       - 'BugFix'
       - 'BugPatch'
   - title: ':robot: Maintenance'
-    labels: 
+    labels:
       - 'chore'
       - 'Chore'
       - 'Dependencies'
