@@ -10,15 +10,14 @@ def validate_module_name():
 
     # Regex to determine if a module name is valid. Conditions to pass;
     #   - First letter should be lower case alphabet
-    #   - Should consist of alphabets and/or hyphen ONLY
-    #   - Should have length between [3, 11] characters (inclusive)
-    MODULE_NAME_REGEX: str = r"^[a-z][a-zA-Z\-]{2,10}$"
+    #   - Should consist of alphabets, numbers, hyphen, underscores ONLY
+    MODULE_NAME_REGEX: str = r"^[a-z][a-zA-Z0-9_\-]+$"
 
     # Name of the module from Cookiecutter configs
-    module_name = r"{{ cookiecutter.module_name }}"
+    module_path = r"{{ cookiecutter.go_module_path }}"
 
-    if not match(MODULE_NAME_REGEX, module_name):
-        raise ValueError(f"Error: Invalid module name: `{module_name}`")
+    if not match(MODULE_NAME_REGEX, module_path):
+        raise ValueError(f"Error: Invalid module name: `{module_path}`")
 
 
 validators: Callable[[], None] = [

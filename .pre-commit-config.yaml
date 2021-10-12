@@ -18,10 +18,6 @@ repos:
       - id: check-executables-have-shebangs       # non-binary executables have shebang
       - id: check-shebang-scripts-are-executable  # verify shebang scripts are executable
 
-      # Pretty format JSON files implicitly
-      - id: pretty-format-json
-        args: ['--autofix']
-
       # Debatable -- for most projects adding files larger than 10 MB is likely to be
       # a mistake instead of a requirement. Remove this if needed
       - id: check-added-large-files       # fails if a file larger than 10 MB exists

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"{{ cookiecutter.module_root }}/{{ cookiecutter.module_name }}/src"
+	"{{ cookiecutter.go_module_path }}/src"
 )
 
 // title contains the name of the project
