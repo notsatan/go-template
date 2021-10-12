@@ -8,7 +8,7 @@ Work in progress.
   - [x] ~~Cookiecutter template for the project~~ (Addressed in [#01](../../pull/01))
   - [x] ~~Avoid double triggers for workflows in branches with open PRs~~ (Addressed in [#02](../../pull/02))
   - [x] ~~Allow test modes - `fast`, `medium` and `slow`~~ (Addressed in [#05](../../pull/05))
-  - [ ] ~~Streamline functioning of GolangCI linter~~ (Addressed in [#06](../../pull/06))
+  - [x] ~~Streamline functioning of GolangCI linter~~ (Addressed in [#06](../../pull/06))
   - [x] ~~Improve pre-commit, add a workflow for the same~~ (Addressed in [#07](../../pull/07))
   - [x] ~~Add license options~~ (Addressed in [#08](../../pull/08))
   - [ ] Improve this readme (seriously!)
