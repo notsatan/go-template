@@ -1,6 +1,6 @@
 from os import mkdir, remove
 from os.path import join, exists
-from shutil import rmtree
+from shutil import rmtree, move
 from pathlib import Path
 from sys import exit
 from typing import Callable, List, Optional, Any
@@ -87,10 +87,29 @@ def precommit_handler():
         remove(workflow)
 
 
+def lincese_generator():
+    """
+    Generates the appropriate license for the template from the given options
+    """
+
+    # Get the selected license - the license file to be used will be the capitalized version
+    # of the first word in the license name
+    selected_license: str = "{{ cookiecutter.license }}"
+    license_file: str = selected_license.split()[0].upper()
+
+    source = join(CUR_DIR, "_licenses", license_file)
+    destination = join(CUR_DIR, "LICENSE")
+
+    # Move the selected license file, remove the `_licenses` directory when done
+    move(source, destination)
+    rmtree(join(CUR_DIR, "_licenses"), ignore_errors=True)
+
+
 runners: Callable[[Optional[Any]], None] = [
     create_temp_directories,
     remove_codecov,
     remove_workflows,
+    lincese_generator,
 ]
 
 for runner in runners:
