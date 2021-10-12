@@ -1,11 +1,16 @@
 {
     "project_name": "go-template",
-    "project_summary": "<one description line to give a brief idea of what the project does>",
-    "module_root": "github.com/notsatan",
-    "module_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "go_module_path": "github.com/notsatan/go-template",
+    "license_owner": "{{ cookiecutter.go_module_path.split('/')[1] }}",
+    "project_license_name": "{{ cookiecutter.project_name }}",
+    "project_description": "go-template creates a customized Go project template to use as a base for your next project",
+    "license": [
+        "MIT",
+        "BSD-3",
+        "GNU GPL v3.0",
+        "Apache Software License 2.0"
+    ],
     "use_codecov": "y",
-    "use_github_actions": "y",
     "use_precommit": "y",
-    "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"],
-    "license_owner": "{{ cookiecutter.module_root.split('/')[-1] }}"
+    "use_github_actions": "y"
 }
