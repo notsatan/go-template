@@ -10,8 +10,8 @@ def validate_module_name():
 
     # Regex to determine if a module name is valid. Conditions to pass;
     #   - First letter should be lower case alphabet
-    #   - Should consist of alphabets, numbers, hyphen, underscores ONLY
-    MODULE_NAME_REGEX: str = r"^[a-z][a-zA-Z0-9_\-]+$"
+    #   - Should consist of alphabets, numbers, hyphen, underscores, forward-slash, and period ONLY
+    MODULE_NAME_REGEX: str = r"^[a-z][a-zA-Z0-9\./_\-]+$"
 
     # Name of the module from Cookiecutter configs
     module_path = r"{{ cookiecutter.go_module_path }}"
