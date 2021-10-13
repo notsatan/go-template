@@ -11,7 +11,7 @@ bin_path="./bin"
 checksums="checksums.txt"
 
 # Basename for the generated binaries - name of the project for example
-basename="go-template"
+basename="{{ cookiecutter.project_name }}"
 
 # Release version - can be blank if needed; if blank, will be populated by command-line
 # arguments passed while running this script (if any).

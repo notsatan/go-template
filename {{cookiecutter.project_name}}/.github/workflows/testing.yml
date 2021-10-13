@@ -24,8 +24,8 @@ jobs:
         uses: actions/cache@v2.1.3
         id: cache
         with:
-          path: go-template
-          key: go-template-${{ hashFiles('go.mod') }}-${{ matrix.go-version }}
+          path: {{ cookiecutter.project_name }}
+          key: {{ cookiecutter.project_name }}-${{ hashFiles('go.mod') }}-${{ matrix.go-version }}
 
       - name: Install Go
         if: steps.cache.outputs.cache-hit != 'true'
@@ -50,7 +50,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.txt
           flags: unittests
-          name: go-template [${{ matrix.go-version }}]
+          name: {{ cookiecutter.project_name }} [${{ matrix.go-version }}]
           fail_ci_if_error: true
           path_to_write_report: ./coverage/codecov_report.gz
           verbose: true
