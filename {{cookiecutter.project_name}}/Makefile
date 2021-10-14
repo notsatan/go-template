@@ -26,7 +26,7 @@ MAKEFLAGS += --silent
 
 
 .PHONY: help
-## `help`: Generates this help dialog the Makefile
+## `help`: Generates this help dialog for the Makefile
 help: Makefile
 	@echo
 	@echo " Commands available in "$(PROJECTNAME)":"

@@ -1,5 +1,4 @@
-{% raw %}
-name: Release Drafter
+{% raw %}name: Release Drafter
 
 on:
   push:
@@ -15,5 +14,4 @@ jobs:
       # Drafts release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5.12.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-{% endraw %}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}

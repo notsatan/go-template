@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"{{ cookiecutter.go_module_path }}/src"
 )
 
