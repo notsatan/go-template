@@ -105,7 +105,7 @@ linters-settings:
   gci:
     # put imports beginning with prefix after 3rd-party packages; only support one
     # prefix - if not set, uses goimports.local-prefixes
-    local-prefixes: github.com/org/project
+    local-prefixes: {{ cookiecutter.go_module_path }}
 
   gocognit:
     # minimal code complexity to report, 30 by default (recommended 10-20)
@@ -225,7 +225,7 @@ linters-settings:
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
-    local-prefixes: github.com/org/project
+    local-prefixes: {{ cookiecutter.go_module_path }}
 
   golint:
     # minimal confidence for issues, default is 0.8
