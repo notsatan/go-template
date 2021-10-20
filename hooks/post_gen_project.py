@@ -105,11 +105,26 @@ def lincese_generator():
     rmtree(join(CUR_DIR, "_licenses"), ignore_errors=True)
 
 
+def remove_security_md():
+    """
+    Removes the `SECURITY.md` file in case the email field is empty -- if the email ID is empty,
+    people cannot get in touch with project stakeholders to report vulnerabilities, making the
+    `SECURITY.md` file be pointless.
+    """
+
+    should_remove: bool = bool("{{ cookiecutter.contact_email }}" == "")
+    if not should_remove:
+        return
+
+    remove(join(CUR_DIR, "SECURITY.md"))
+
+
 runners: Callable[[Optional[Any]], None] = [
     create_temp_directories,
     remove_codecov,
     remove_workflows,
     lincese_generator,
+    remove_security_md,
 ]
 
 for runner in runners:
