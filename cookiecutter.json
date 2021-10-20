@@ -2,6 +2,7 @@
     "project_name": "go-template",
     "go_module_path": "github.com/notsatan/go-template",
     "license_owner": "{{ cookiecutter.go_module_path.split('/')[1] }}",
+    "contact_email": "",
     "project_license_name": "{{ cookiecutter.project_name }}",
     "project_description": "go-template creates a customized Go project template to use as a base for your next project",
     "license": [
