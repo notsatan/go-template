@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 
 from pathlib import Path
@@ -14,6 +15,24 @@ temp_directories: List[str] = [
     "bin",
     "coverage",
 ]
+
+
+def lincese_generator():
+    """
+    Generates the appropriate license for the template from the given options
+    """
+
+    # Get the selected license - the license file to be used will be the capitalized version
+    # of the first word in the license name
+    selected_license: str = "{{ cookiecutter.license }}"
+    license_file: str = re.findall(r"^[a-zA-Z]+", selected_license)[0]
+
+    source = os.path.join(CUR_DIR, "_licenses", license_file)
+    destination = os.path.join(CUR_DIR, "LICENSE")
+
+    # Move the selected license file, remove the `_licenses` directory when done
+    shutil.move(source, destination)
+    shutil.rmtree(os.path.join(CUR_DIR, "_licenses"), ignore_errors=True)
 
 
 def create_temp_directories():
@@ -87,24 +106,6 @@ def remove_precommit():
         os.remove(workflow)
 
 
-def lincese_generator():
-    """
-    Generates the appropriate license for the template from the given options
-    """
-
-    # Get the selected license - the license file to be used will be the capitalized version
-    # of the first word in the license name
-    selected_license: str = "{{ cookiecutter.license }}"
-    license_file: str = selected_license.split()[0].upper()
-
-    source = os.path.join(CUR_DIR, "_licenses", license_file)
-    destination = os.path.join(CUR_DIR, "LICENSE")
-
-    # Move the selected license file, remove the `_licenses` directory when done
-    shutil.move(source, destination)
-    shutil.rmtree(os.path.join(CUR_DIR, "_licenses"), ignore_errors=True)
-
-
 def remove_security_md():
     """
     Removes the `SECURITY.md` file in case the email field is empty -- if the email ID is empty,
@@ -120,11 +121,11 @@ def remove_security_md():
 
 
 runners: Callable[[Optional[Any]], None] = [
+    lincese_generator,
     create_temp_directories,
     remove_codecov,
     remove_workflows,
     remove_precommit,
-    lincese_generator,
     remove_security_md,
 ]
 
