@@ -38,7 +38,7 @@ def remove_codecov(*, force: bool = False):
 
     if not codecov_needed or force:
         # If Codecov is not needed, delete `codecov.yml`
-        dest_path: str = os.path.join(CUR_DIR, ".codecov.yml")
+        dest_path: str = os.path.join(CUR_DIR, "codecov.yml")
 
         if not os.path.exists(dest_path):
             return False  # The file to delete does not exist
