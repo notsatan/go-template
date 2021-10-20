@@ -67,7 +67,7 @@ def remove_workflows(*, force: bool = False):
         remove_codecov(force=True)
 
 
-def precommit_handler():
+def remove_precommit():
     """
     If pre-commit is not to be used, removes pre-commit configuration file, and the Github workflow
     for the same
@@ -123,6 +123,7 @@ runners: Callable[[Optional[Any]], None] = [
     create_temp_directories,
     remove_codecov,
     remove_workflows,
+    remove_precommit,
     lincese_generator,
     remove_security_md,
 ]
