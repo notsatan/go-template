@@ -40,10 +40,10 @@ local-setup:
 	@echo "  >  Ensuring directory is a git repository"
 	git init &> /dev/null
 	{%- if cookiecutter.use_precommit.lower() == 'y' -%}
+	{% raw %}
 	@echo "  >  Installing pre-commit"
 	pip install --upgrade pre-commit &> /dev/null
-	pre-commit install
-	{% endif %}
+	pre-commit install{% endraw %}{% endif %}
 	@echo "  >  Installing GolangCI-Lint"
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
 
