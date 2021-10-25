@@ -11,7 +11,7 @@ jobs:
   test:
     strategy:
       matrix:
-        go-version: [ {{ cookiecutter.go_version }} ]
+        go-version: [ {{ cookiecutter.go_version }}.x ]
         os: [ ubuntu-latest ]
 {% raw %}
     runs-on: ${{ matrix.os }}

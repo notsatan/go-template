@@ -11,7 +11,7 @@ jobs:
   setup:
     strategy:
       matrix:
-        go-version: [ {{ cookiecutter.go_version }} ]
+        go-version: [ {{ cookiecutter.go_version }}.x ]
         os: [ ubuntu-latest ]
 {% raw %}
     runs-on: ${{ matrix.os }}
@@ -31,7 +31,7 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           # Must be specified without patch version: we always use the latest patch version.
-          version: v1.29
+          version: v1.42
 
           # If set to true then the action will use pre-installed Go
           skip-go-installation: true
