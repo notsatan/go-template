@@ -8,7 +8,14 @@ on:
     types: [ opened, reopened ]
 
 jobs:
-  setup:
+  {% raw %}pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+    - uses: pre-commit/action@v2.0.3{% endraw %}
+
+  golangci-lint:
     strategy:
       matrix:
         go-version: [ {{ cookiecutter.go_version }}.x ]

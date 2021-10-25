@@ -8,7 +8,7 @@ on:
     types: [ opened, reopened ]
 
 jobs:
-  update_release_draft:
+  release-drafter:
     runs-on: ubuntu-latest
     steps:
       # Drafts release notes as Pull Requests are merged into "master"

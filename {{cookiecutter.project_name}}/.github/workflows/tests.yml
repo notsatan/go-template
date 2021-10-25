@@ -8,7 +8,7 @@ on:
     types: [ opened, reopened ]
 
 jobs:
-  test:
+  tests:
     strategy:
       matrix:
         go-version: [ {{ cookiecutter.go_version }}.x ]
