@@ -106,18 +106,27 @@ def remove_precommit():
         os.remove(workflow)
 
 
-def remove_security_md():
+def check_email_provided():
     """
-    Removes the `SECURITY.md` file in case the email field is empty -- if the email ID is empty,
-    people cannot get in touch with project stakeholders to report vulnerabilities, making the
-    `SECURITY.md` file be pointless.
+    Checks if the user has provided an email while generating the template
+
+    Removes the `SECURITY.md` and `CODE_OF_CONDUCT.md` file in case the email field is empty -- if
+    the email ID is empty, people cannot get in touch with project stakeholders to report, making
+    the file(s) be pointless.
     """
 
     should_remove: bool = bool("{{ cookiecutter.contact_email }}" == "")
     if not should_remove:
         return
 
-    os.remove(os.path.join(CUR_DIR, "SECURITY.md"))
+    # List of files to be removed
+    files: List[str] = ["SECURITY.md", "CODE_OF_CONDUCT.md"]
+    for f in files:
+        deletable_file = os.path.join(CUR_DIR, f)
+        if not os.path.exists(path=deletable_file):
+            continue
+
+        os.remove(deletable_file)
 
 
 runners: Callable[[Optional[Any]], None] = [
@@ -126,7 +135,7 @@ runners: Callable[[Optional[Any]], None] = [
     remove_codecov,
     remove_workflows,
     remove_precommit,
-    remove_security_md,
+    check_email_provided,
 ]
 
 for runner in runners:
