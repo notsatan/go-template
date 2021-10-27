@@ -24,7 +24,7 @@ def lincese_generator():
 
     # Get the selected license - the license file to be used will be the capitalized version
     # of the first word in the license name
-    selected_license: str = "{{ cookiecutter.license }}"
+    selected_license: str = "{{ cookiecutter.license }}".upper()
     license_file: str = re.findall(r"^[a-zA-Z]+", selected_license)[0]
 
     source = os.path.join(CUR_DIR, "_licenses", license_file)
