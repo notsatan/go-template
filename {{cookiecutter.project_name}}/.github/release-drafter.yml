@@ -50,5 +50,4 @@ version-resolver:
 template: |
   ## Changes
 
-  $CHANGES
-{% endraw %}
+  $CHANGES{% endraw %}
