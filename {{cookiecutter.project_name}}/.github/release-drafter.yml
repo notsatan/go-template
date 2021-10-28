@@ -1,53 +1,42 @@
 {% raw %}
-name-template: 'v$RESOLVED_VERSION 🌈'
+name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
+
 categories:
-  - title: ':rocket: Major Updates'
-    labels:
-      - 'feature'
-      - 'enhancement'
-      - 'Major'
-      - 'major'
-      - 'Feature'
-  - title: ':penguin: Other Updates'
-    labels:
-      - 'Update'
-      - 'Update'
-  - title: ':turtle: Minor Updates'
-    labels:
-      - 'minor'
-      - 'Minor'
+  - title: ':lock: Security Issues'
+    labels: [security]
+
+  - title: ':rocket: Updates'
+    labels: [enhancement, feature, update]
+
   - title: ':bug: Bug Fixes'
-    labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
-      - 'BugFix'
-      - 'BugPatch'
-  - title: ':robot: Maintenance'
-    labels:
-      - 'chore'
-      - 'Chore'
-      - 'Dependencies'
-      - 'dependencies'
-      - 'Dependency'
-      - 'dependency'
-  - title: ':arrow_up: Dependencies Updates'
-    labels: [dependencies]
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+    labels: [bug, bugfix, fix, hotfix]
+
+  - title: ':memo: Documentation'
+    labels: [documentation]
+
+  - title: ':construction: Work in Progress'
+    labels: [wip, in-progress, incomplete, partial]
+
+  - title: ':package: Dependency Updates'
+    labels: [dependencies, dependency]
+
+  - title: ":test_tube: Tests and Refactor"
+    labels: [refactoring, refactor, tests, testing]
+
+  - title: ":robot: CI/CD and Pipelines"
+    labels: [build, ci, pipeline]
+
+change-template: '- $TITLE (#$NUMBER) - @$AUTHOR'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
-  major:
-    labels:
-      - 'major'
   minor:
-    labels:
-      - 'minor'
+    labels: [major]
   patch:
-    labels:
-      - 'patch'
-  default: patch
+    labels: [patch, minor]
+  default: minor
+
 template: |
-  ## Changes
+  ## Here's What Changed
 
   $CHANGES{% endraw %}
