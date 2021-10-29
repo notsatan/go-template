@@ -68,22 +68,28 @@ def remove_codecov(*, force: bool = False):
     return False
 
 
-def remove_workflows(*, force: bool = False):
+def disable_github_features(*, force: bool = False):
     """
-    Removes the `.github` directory containing Github workflows from project root if not needed
+    Removes the `.github` directory containing Github workflows from project root if not needed.
+    Additionally, goes on to remove any other file/directory that would be specific to Github
     """
 
-    actions_needed: bool = bool("{{ cookiecutter.use_github_actions }}".lower() == "y")
+    github_features_needed: bool = bool(
+        "{{ cookiecutter.github_specific_features }}".lower() == "y"
+    )
 
-    if not actions_needed or force:
-        dest_path: str = os.path.join(CUR_DIR, ".github")
-        if not os.path.exists(dest_path):
-            return False  # The directory to delete does not exist
+    if github_features_needed and not force:
+        # If Github-specific features are needed, and the action is not forced, skip
+        return
 
-        shutil.rmtree(dest_path, ignore_errors=True)
+    dest_path: str = os.path.join(CUR_DIR, ".github")
+    if not os.path.exists(dest_path):
+        return False  # The directory to delete does not exist
 
-        # Since workflows are to be removed, remove `codecov.yml` as well
-        remove_codecov(force=True)
+    shutil.rmtree(dest_path, ignore_errors=True)
+
+    # Since workflows are to be removed, remove `codecov.yml` as well
+    remove_codecov(force=True)
 
 
 def remove_precommit():
@@ -133,7 +139,7 @@ runners: Callable[[Optional[Any]], None] = [
     lincese_generator,
     create_temp_directories,
     remove_codecov,
-    remove_workflows,
+    disable_github_features,
     remove_precommit,
     check_email_provided,
 ]
