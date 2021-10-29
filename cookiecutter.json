@@ -5,17 +5,17 @@
     "contact_email": "",
     "project_license_name": "{{ cookiecutter.project_name }}",
     "project_description": "go-template creates a customized Go project template to use as a base for your next project",
+    "github_specific_features": "y",
+    "use_codecov": "y",
+    "use_precommit": "y",
+    "go_version": [
+        "1.17",
+        "1.16"
+    ],
     "license": [
         "MIT",
         "BSD-3",
         "GNU GPL v3.0",
         "Apache Software License 2.0"
-    ],
-    "use_codecov": "y",
-    "use_precommit": "y",
-    "use_github_actions": "y",
-    "go_version": [
-        "1.17",
-        "1.16"
     ]
 }
