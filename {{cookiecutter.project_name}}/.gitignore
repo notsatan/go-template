@@ -11,3 +11,6 @@ coverage/**
 !tmp/.gitkeep
 !bin/.gitkeep
 !coverage/.gitkeep
+
+# Config file containing values used to generate the Cookiecutter template
+cookiecutter-config-file.yml
