@@ -1,3 +1,4 @@
+{%- if cookiecutter.github_specific_features.lower() == 'y' -%}
 version: 2
 updates:
   - package-ecosystem: "gomod"
@@ -17,4 +18,4 @@ updates:
     # Check for updates to dependencies once a week - Saturday
     schedule:
       interval: "weekly"
-      day: "saturday"
+      day: "saturday"{% endif %}
