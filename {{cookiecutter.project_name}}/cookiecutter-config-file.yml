@@ -1,0 +1,11 @@
+cookiecutter_inputs:
+  project_name: "{{ cookiecutter.project_name }}"
+  go_module_path: "{{ cookiecutter.go_module_path }}"
+  license_owner: "{{ cookiecutter.license_owner }}"
+  contact_email: "{{ cookiecutter.contact_email }}"
+  project_description: "{{ cookiecutter.project_description }}"
+  github_specific_features: "{{ cookiecutter.github_specific_features }}"
+  use_codecov: "{{ cookiecutter.use_codecov }}"
+  use_precommit: "{{ cookiecutter.use_precommit }}"
+  go_version: "{{ cookiecutter.go_version }}"
+  license: "{{ cookiecutter.license }}"
