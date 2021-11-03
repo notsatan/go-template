@@ -11,7 +11,7 @@ def is_module_hosted_on_github():
     """
 
     # Regex pattern to validate module name - might need some tweaks
-    pattern = r"^github.com\/\w+\\w+\/?$"
+    pattern = r"^github.com\/[a-zA-Z0-9\-]+\/[a-zA-Z0-9\-]+\/?$"
 
     # If the user has not opted for Github-specific features, skip
     perform_check: bool = bool(
