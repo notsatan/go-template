@@ -44,8 +44,6 @@ local-setup:
 	@echo "  >  Installing pre-commit"
 	pip install --upgrade pre-commit &> /dev/null
 	pre-commit install{% endraw %}{% endif %}
-	@echo "  >  Installing GolangCI-Lint"
-	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.42.1
 
 # Will install missing dependencies
 .PHONY: install
