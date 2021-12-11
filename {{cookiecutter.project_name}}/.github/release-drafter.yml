@@ -18,7 +18,7 @@ categories:
   - title: ':construction: Work in Progress'
     labels: [wip, in-progress, incomplete, partial]
 
-  - title: ':package: Dependency Updates'
+  - title: ':package: Dependencies'
     labels: [dependencies, dependency]
 
   - title: ":test_tube: Tests and Refactor"

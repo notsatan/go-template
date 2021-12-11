@@ -11,10 +11,6 @@ updates:
     reviewers:
       - "{{ cookiecutter.go_module_path.split('/')[1] }}"
 
-    # Labels to add to PRs raised
-    labels:
-      - "enhancement"
-
     # Check for updates to dependencies once a week - Saturday
     schedule:
       interval: "weekly"

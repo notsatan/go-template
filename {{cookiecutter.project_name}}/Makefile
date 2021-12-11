@@ -5,7 +5,7 @@
 # printed in the help command
 
 # Name of the current directory
-PROJECTNAME=$(shell basename "$(PWD)")
+PROJECTNAME="{{ cookiecutter.project_name }}"
 
 # List of all Go-files to be processed
 GOFILES=$(wildcard *.go)
@@ -28,28 +28,32 @@ MAKEFLAGS += --silent
 .PHONY: help
 ## `help`: Generates this help dialog for the Makefile
 help: Makefile
-	@echo
-	@echo " Commands available in "$(PROJECTNAME)":"
-	@echo
-	@sed -n 's/^[ \t]*##//p' $< | column -t -s ':' |  sed -e 's/^//'
-	@echo
+	echo
+	echo " Commands available in \`"$(PROJECTNAME)"\`:"
+	echo
+	sed -n 's/^[ \t]*##//p' $< | column -t -s ':' |  sed -e 's/^//'
+	echo
 
+
+{% if cookiecutter.use_precommit.lower() == 'y' -%}
 .PHONY: local-setup
 ## `local-setup`: Setup development environment locally
 local-setup:
-	@echo "  >  Ensuring directory is a git repository"
+	echo "  >  Ensuring directory is a git repository"
 	git init &> /dev/null
-	{%- if cookiecutter.use_precommit.lower() == 'y' -%}
-	{% raw %}
-	@echo "  >  Installing pre-commit"
+	echo "  >  Installing pre-commit"
 	pip install --upgrade pre-commit &> /dev/null
-	pre-commit install{% endraw %}{% endif %}
+	pre-commit install
+
+
+{%+ endif -%}
+
 
 # Will install missing dependencies
 .PHONY: install
-## `install`: Get dependencies and stuff needed to run the project
+## `install`: Fetch dependencies needed to run `{{ cookiecutter.project_name }}`
 install:
-	@echo "  >  Getting dependencies..."
+	echo "  >  Getting dependencies..."
 	go get -v $(get)
 	go mod tidy
 
@@ -58,56 +62,50 @@ install:
 ## :
 ## `codestyle`: Run code formatter(s)
 codestyle:
-	@echo -e "\n\t> Running Golang CI Lint"
-	@golangci-lint run --fix
-
-.PHONY: checkstyle
-## `checkstyle`: Run linter(s) and check code-style
-checkstyle:
-	@echo -e "\t> Running Golang CI - Lint"
-	@golangci-lint run
+	golangci-lint run --fix
 
 
-# Delibrately not revealing this command - designed to be consumed internally
+.PHONY: lint
+## `lint`: Run linters and check code-style
+lint:
+	golangci-lint run
+
+
+# No `help` message for this command - designed to be consumed internally
 .PHONY: --test-runner
 --test-runner:
-	@go test ./... -race -covermode=atomic -coverprofile=./coverage/coverage.txt -gcflags=-l
-	@go tool cover -html=./coverage/coverage.txt -o ./coverage/coverage.html
+	go test ./... -race -covermode=atomic -coverprofile=./coverage/coverage.txt
+	go tool cover -html=./coverage/coverage.txt -o ./coverage/coverage.html
+
 
 .PHONY: test
 ## :
-## `test`: Run fast and medium tests
-test: export FAST_TEST="true"
-test: export MEDIUM_TEST="true"
+## `test`: Run all tests
+test: export TEST_MODE="complete"
 test: --test-runner
+
 
 .PHONY: fast-test
 ## `fast-test`: Selectively run fast tests
-fast-test: export FAST_TEST="true"
+fast-test: export TEST_MODE="fast"
 fast-test: --test-runner
 
-.PHONY: medium-test
-## `medium-test`: Selectively run medium tests
-medium-test: export MEDIUM_TEST="true"
-medium-test: --test-runner
 
 .PHONY: slow-test
-## `slow-test`: Selectively run long tests
-slow-test: export SLOW_TEST="true"
+## `slow-test`: Selectively run slow tests
+slow-test: export TEST_MODE="slow"
 slow-test: --test-runner
 
 
 .PHONY: test-suite
-## `test-suite`: Checkstyle and run ALL tests
-test-suite: export FAST_TEST="true"
-test-suite: export MEDIUM_TEST="true"
-test-suite: export SLOW_TEST="true"
-test-suite: checkstyle test
+## `test-suite`: Check code style, run linters and ALL tests
+test-suite: export TEST_MODE="complete"
+test-suite: lint test
 
 
 .PHONY: run
 ## :
-## `run`: Run the project
+## `run`: Run `{{ cookiecutter.project_name }}`
 ##  : Optional; `make run q="args"` to pass arguments
 run:
 	go run main.go $(q)
@@ -116,7 +114,7 @@ run:
 .PHONY: docker-gen
 ## `docker-gen`: Create a new docker image for the project
 docker-gen:
-	@echo Building docker image \`$(IMAGE):$(VERSION)\`...
+	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
 	docker build \
 		-t $(IMAGE):$(VERSION) . \
 		-f ./docker/Dockerfile
@@ -125,8 +123,8 @@ docker-gen:
 .PHONY: clean-docker
 ## `clean-docker`: Delete an existing docker image
 clean-docker:
-	@echo Removing docker $(IMAGE):$(VERSION) ...
-	@docker rmi -f $(IMAGE):$(VERSION)
+	echo "Removing docker $(IMAGE):$(VERSION)..."
+	docker rmi -f $(IMAGE):$(VERSION)
 
 
 ## :

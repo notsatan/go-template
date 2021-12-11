@@ -50,7 +50,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.txt
           flags: unittests
-          name: {{ cookiecutter.project_name }} [${{ matrix.go-version }}]
+          name: {% endraw %}{{ cookiecutter.project_name }}{% raw %} [${{ matrix.go-version }}]
           fail_ci_if_error: true
           path_to_write_report: ./coverage/codecov_report.gz
           verbose: true{% endraw %}{% endif %}
