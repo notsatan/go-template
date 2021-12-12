@@ -4,7 +4,7 @@
 how to use it!
 
 This section guides you on how to use the [Makefile](../Makefile) to create (and remove)
-a docker container for `{{ cookiecutter.project_name }}`!
+a docker container for `{{ cookiecutter.project_name.strip() }}`!
 
 ## Installation
 
@@ -25,7 +25,7 @@ variables `IMAGE` and `VERSION`.
 
 Defaults; <br>
 
-`IMAGE := {{ cookiecutter.project_name }}` <br>
+`IMAGE := {{ cookiecutter.project_name.strip() }}` <br>
 `VERSION := latest` <br>
 
 These values can be changed while executing any docker-related command from the Makefile
@@ -40,7 +40,7 @@ make docker-gen IMAGE=<some_name> VERSION=0.1.0
 Once you've created a docker container, to run the container, use
 
 ```bash
-docker run -it --rm -v $(pwd):/workspace {{ cookiecutter.project_name }} bash
+docker run -it --rm -v $(pwd):/workspace {{ cookiecutter.project_name.strip() }} bash
 ```
 
 ## Cleaning a docker image

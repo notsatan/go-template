@@ -1,6 +1,6 @@
 {
     "project_name": "go-template",
-    "project_description": "{{ ''.join(cookiecutter.project_name.replace('-', ' ').replace('_', ' ').title().split()) }} is a Go application created using https://github.com/notsatan/go-template",
+    "project_description": "{{ ''.join(cookiecutter.project_name.strip().replace('-', ' ').replace('_', ' ').title().split()) }} is a Go application created using https://github.com/notsatan/go-template",
     "go_module_path": "github.com/notsatan/go-template",
     "license_owner": "notsatan",
     "base_branch": "master",

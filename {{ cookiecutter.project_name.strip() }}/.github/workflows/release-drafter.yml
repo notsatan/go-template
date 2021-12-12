@@ -1,11 +1,10 @@
-{% raw %}name: Release Drafter
+name: Release Drafter
 
 on:
-  push:
-    branches:
-      - '*'
   pull_request:
-    types: [ opened, reopened ]
+    branches:
+      - {{ cookiecutter.base_branch.strip() }}
+    types: [ closed ]
 
 jobs:
   release-drafter:
@@ -14,4 +13,6 @@ jobs:
       # Drafts release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@v5.12.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+{%- raw %}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+{%- endraw %}

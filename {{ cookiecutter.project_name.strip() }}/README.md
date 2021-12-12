@@ -1,17 +1,17 @@
-# {{ cookiecutter.project_name }}
+# {{ cookiecutter.project_name.strip() }}
 
 {% if cookiecutter.github_specific_features.lower() == 'y' -%}
 <div align="center">
 
-[![Build Status](https://img.shields.io/github/checks-status/{{ cookiecutter.go_module_path.replace('github.com/', '') }}/{{ cookiecutter.base_branch }}?color=black&style=for-the-badge&logo=github)][github-actions]
+[![Build Status](https://img.shields.io/github/checks-status/{{ cookiecutter.go_module_path.strip('/').replace('github.com/', '') }}/{{ cookiecutter.base_branch.strip() }}?color=black&style=for-the-badge&logo=github)][github-actions]
 {% if cookiecutter.use_codecov.lower() == 'y' -%}
-[![Code Coverage](https://img.shields.io/codecov/c/{{ cookiecutter.go_module_path.replace('.com', '') }}?color=blue&logo=codecov&style=for-the-badge)][github-actions-tests]
+[![Code Coverage](https://img.shields.io/codecov/c/{{ cookiecutter.go_module_path.strip('/').replace('.com', '') }}?color=blue&logo=codecov&style=for-the-badge)][github-actions-tests]
 {% endif -%}
 [![Security: bandit](https://img.shields.io/badge/Security-GoSec-lightgrey?style=for-the-badge&logo=springsecurity)](https://github.com/securego/gosec)
 [![Dependencies Status](https://img.shields.io/badge/Dependencies-Up%20to%20Date-brightgreen?style=for-the-badge&logo=dependabot)][dependabot-pulls]
 [![Semantic Versioning](https://img.shields.io/badge/versioning-semantic-black?style=for-the-badge&logo=semver)][github-releases]
 [![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][precommit-config]
-[![License](https://img.shields.io/github/license/{{ cookiecutter.go_module_path.replace('github.com/', '') }}?color=red&style=for-the-badge)][project-license]
+[![License](https://img.shields.io/github/license/{{ cookiecutter.go_module_path.strip('/').replace('github.com/', '') }}?color=red&style=for-the-badge)][project-license]
 [![Go v{{ cookiecutter.go_version }}](https://img.shields.io/badge/Go-%20v{{ cookiecutter.go_version }}-black?style=for-the-badge&logo=go)][gomod-file]
 
 {{ cookiecutter.project_description }}
@@ -23,7 +23,7 @@
 ## Initial Setup
 
 This section is intended to help developers and contributors get a working copy of
-`{{ cookiecutter.project_name }}` on their end
+`{{ cookiecutter.project_name.strip() }}` on their end
 
 <details>
 <summary>
@@ -31,8 +31,8 @@ This section is intended to help developers and contributors get a working copy 
 </summary><br>
 
 ```sh
-git clone https://{{ cookiecutter.go_module_path }}
-cd {{ cookiecutter.go_module_path.split('/')[-1] }}
+git clone https://{{ cookiecutter.go_module_path.strip('/') }}
+cd {{ cookiecutter.go_module_path.strip('/').split('/')[-1] }}
 ```
 </details>
 
@@ -48,18 +48,18 @@ Install `golangci-lint` from the [official website][golangci-install] for your O
 
 ## Local Development
 
-This section will guide you to setup a fully-functional local copy of `{{ cookiecutter.project_name }}`
+This section will guide you to setup a fully-functional local copy of `{{ cookiecutter.project_name.strip() }}`
 on your end and teach you how to use it! Make sure you have installed
 [golangci-lint][golangci-install] before following this section!
 
 **Note:** This section relies on the usage of [Makefile][makefile-official]. If you
 can't (or don't) use Makefile, you can follow along by running the internal commands
-from [`{{ cookiecutter.project_name }}'s` Makefile][makefile-file] (most of which are
+from [`{{ cookiecutter.project_name.strip() }}'s` Makefile][makefile-file] (most of which are
 OS-independent)!
 
 ### Installing dependencies
 
-To install all dependencies associated with `{{ cookiecutter.project_name }}`, run the
+To install all dependencies associated with `{{ cookiecutter.project_name.strip() }}`, run the
 command
 
 ```sh
@@ -73,7 +73,7 @@ For a watered-down explanation, [pre-commit][pre-commit] hooks are an abstractio
 [git-hooks][githooks], allowing you to define a series of commands (or checks), that
 would be automatically run every time you use the `git commit` command.
 
-The pre-commit hooks used by `{{ cookiecutter.project_name }}` are located within the
+The pre-commit hooks used by `{{ cookiecutter.project_name.strip() }}` are located within the
 [`.pre-commit-config.yml`][precommit-config] file. These hooks are configured to run;
 
  - Series of basic checks (JSON, YAML, XML file schema validation)
@@ -134,7 +134,7 @@ make lint
 
 ### Running Tests
 
-Tests in `{{ cookiecutter.project_name }}` are classified as *fast* and *slow* - depending
+Tests in `{{ cookiecutter.project_name.strip() }}` are classified as *fast* and *slow* - depending
 on how quick they are to execute.
 
 To selectively run tests from either test group, use the Makefile command
@@ -174,8 +174,33 @@ and [all tests](#running-tests) one after the other!
 
 ### Makefile help
 
-To view a list of all Makefile commands, and a short description of what they do, simply
-run
+<details>
+<summary>
+    Tap for a list of Makefile commands
+</summary><br>
+
+|     Command    	|                               Description                               	| Prerequisites 	|
+|:--------------:	|:-----------------------------------------------------------------------:	|:-------------:	|
+|     `help`     	| Generate help dialog listing all Makefile commands with description     	|       NA      	|
+{% if cookiecutter.use_precommit.lower() == 'y' -%}
+|  `local-setup` 	| Setup development environment locally                                   	|  python, pip  	|
+{% endif -%}
+|    `install`   	| Fetch project dependencies                                              	|       NA      	|
+|   `codestyle`  	| Run code-formatters                                                     	| golangci-lint 	|
+|     `lint`     	| Check codestyle and run linters                                         	| golangci-lint 	|
+|     `test`     	| Run **all** tests                                                       	|       NA      	|
+|  `fast-tests`  	| Selectively run *fast* tests                                            	|       NA      	|
+|  `slow-tests`  	| Selectively run *slow* tests                                            	|       NA      	|
+|  `test-suite`  	| Check codestyle, run linters and **tests** tests                        	| golangci-lint 	|
+|      `run`     	| Run *{{ cookiecutter.project_name.strip().strip() }}*                           	|       NA      	|
+|  `docker-gen`  	| Create a new docker image for *{{ cookiecutter.project_name.strip().strip() }}* 	|     docker    	|
+| `clean-docker` 	| Remove docker image generated by `docker-gen`                           	|     docker    	|
+
+</details>
+<br>
+
+Optionally, to see a list of all Makefile commands, and a short description of what they
+do, you can simply run
 
 ```sh
 make
@@ -212,12 +237,12 @@ after the next run of CI pipeline!
 
 ### Using Docker
 
-To run `{{ cookiecutter.project_name }}` in a docker container, read the instructions in
+To run `{{ cookiecutter.project_name.strip() }}` in a docker container, read the instructions in
 [docker section](./docker).
 
-### Running `{{ cookiecutter.project_name }}`
+### Running `{{ cookiecutter.project_name.strip() }}`
 
-To run {{ cookiecutter.project_name }}, use the command
+To run {{ cookiecutter.project_name.strip() }}, use the command
 
 ```sh
 make run
@@ -319,7 +344,7 @@ This project was generated with [go-template][go-template-link] generator and
 [github-actions]: ../../actions
 [github-releases]: ../../releases
 [precommit-config]: ./.pre-commit-config.yaml
-[gomod-file]: ../{{ cookiecutter.base_branch }}/go.mod
+[gomod-file]: ../{{ cookiecutter.base_branch.strip() }}/go.mod
 [github-actions-tests]: ../../actions/workflows/tests.yml
 [dependabot-pulls]: ../../pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Aapp%2Fdependabot
 

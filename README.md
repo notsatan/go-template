@@ -120,7 +120,7 @@ values, and what they are used for
 | `project_description`      	| Based on `project_name`           	| A small description of the project, used to generate `GNU` license file, and default readme                                                                                                    	|
 | `go_module_path`           	| *github.com/notsatan/go-template* 	| Complete Go module path for the generated project, use Github path to enable Github specific features                                                                                          	|
 | `license_owner`            	| *notsatan*                        	| Used in `LICENSE` and other files. Can be the name of a person or an organization.                                                                                                             	|
-| `base_branch`              	| `master`                          	| The stable/base branch. Used for build status badges (if you enable Github specific features)                                                                                                  	|
+| `base_branch`              	| `master`                          	| The stable/base branch. Used for build status badges and release-drafter (if you enable Github specific features)                                                                              	|
 | `contact_email`            	| `""`                              	| Email to get in touch with project stakeholders. `CODE_OF_CONDUCT.md` and `SECURITY.md` will be removed if empty. [Why is this needed?](#why-is-my-email-id-needed)                            	|
 | `github_specific_features` 	| **y**                             	| Yes or No (`y` or `n`). Dictates if Github-specific features should be included in the project (issue templates, pipeline, etc). [More Info](#what-does-the-github_specific_features-field-do) 	|
 | `use_codecov`              	| **y**                             	| Yes or No (`y` or `n`). Decides if [Codecov](http://codecov.com) is to be used in the project or not. [Setting up codecov](#how-to-integrate-codecov-for-automated-code-analysis)              	|
@@ -327,19 +327,19 @@ for more details.
 [uber-style-guide]: https://github.com/uber-go/guide/blob/master/style.md
 [code-review-comments]: https://github.com/golang/go/wiki/CodeReviewComments
 [stylecheck-link]: https://github.com/dominikh/go-tools/tree/master/stylecheck
-[makefile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/Makefile
+[makefile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/Makefile
 [multistage-builds]: https://docs.docker.com/develop/develop-images/multistage-build
-[gitignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.gitignore
+[gitignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.gitignore
 [shades-of-go]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang
-[golangci-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.golangci.yml
-[editorconfig-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.editorconfig
-[dockerignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.dockerignore
-[workflows-dir]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.github/workflows
-[build-script-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/build-script.sh
-[dockerfile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/docker/Dockerfile
-[issue-templates]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.github/ISSUE_TEMPLATE
-[pr-template]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
-[dependabot-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.github/dependabot.yml
-[precommit-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.pre-commit-config.yaml
-[release-drafter-file]: ../../tree/master/%7B%7Bcookiecutter.project_name%7D%7D/.github/release-drafter.yml
+[golangci-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.golangci.yml
+[editorconfig-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.editorconfig
+[dockerignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.dockerignore
+[workflows-dir]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/workflows
+[build-script-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/build-script.sh
+[dockerfile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/docker/Dockerfile
+[issue-templates]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/ISSUE_TEMPLATE
+[pr-template]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
+[dependabot-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/dependabot.yml
+[precommit-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.pre-commit-config.yaml
+[release-drafter-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/release-drafter.yml
 [creating-secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository

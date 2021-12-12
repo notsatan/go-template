@@ -1,6 +1,6 @@
 cookiecutter_inputs:
-  project_name: "{{ cookiecutter.project_name }}"
-  go_module_path: "{{ cookiecutter.go_module_path }}"
+  project_name: "{{ cookiecutter.project_name.strip() }}"
+  go_module_path: "{{ cookiecutter.go_module_path.strip('/') }}"
   license_owner: "{{ cookiecutter.license_owner }}"
   base_branch: "{{ cookiecutter.base_branch }}"
   contact_email: "{{ cookiecutter.contact_email }}"

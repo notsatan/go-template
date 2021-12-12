@@ -5,7 +5,7 @@
 # printed in the help command
 
 # Name of the current directory
-PROJECTNAME="{{ cookiecutter.project_name }}"
+PROJECTNAME="{{ cookiecutter.project_name.strip() }}"
 
 # List of all Go-files to be processed
 GOFILES=$(wildcard *.go)
@@ -51,7 +51,7 @@ local-setup:
 
 # Will install missing dependencies
 .PHONY: install
-## `install`: Fetch dependencies needed to run `{{ cookiecutter.project_name }}`
+## `install`: Fetch dependencies needed to run `{{ cookiecutter.project_name.strip() }}`
 install:
 	echo "  >  Getting dependencies..."
 	go get -v $(get)
@@ -85,16 +85,16 @@ test: export TEST_MODE="complete"
 test: --test-runner
 
 
-.PHONY: fast-test
-## `fast-test`: Selectively run fast tests
-fast-test: export TEST_MODE="fast"
-fast-test: --test-runner
+.PHONY: fast-tests
+## `fast-tests`: Selectively run fast tests
+fast-tests: export TEST_MODE="fast"
+fast-tests: --test-runner
 
 
-.PHONY: slow-test
-## `slow-test`: Selectively run slow tests
-slow-test: export TEST_MODE="slow"
-slow-test: --test-runner
+.PHONY: slow-tests
+## `slow-tests`: Selectively run slow tests
+slow-tests: export TEST_MODE="slow"
+slow-tests: --test-runner
 
 
 .PHONY: test-suite
@@ -105,7 +105,7 @@ test-suite: lint test
 
 .PHONY: run
 ## :
-## `run`: Run `{{ cookiecutter.project_name }}`
+## `run`: Run `{{ cookiecutter.project_name.strip() }}`
 ##  : Optional; `make run q="args"` to pass arguments
 run:
 	go run main.go $(q)
@@ -115,7 +115,7 @@ run:
 ## `docker-gen`: Create a new docker image for the project
 docker-gen:
 	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
-	docker build \
+	docker build --rm \
 		-t $(IMAGE):$(VERSION) . \
 		-f ./docker/Dockerfile
 

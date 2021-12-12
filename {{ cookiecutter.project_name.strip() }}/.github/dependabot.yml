@@ -6,10 +6,10 @@ updates:
 
     # Auto assign PRs raised to this account on Github
     assignees:
-      - "{{ cookiecutter.go_module_path.split('/')[1] }}"
+      - "{{ cookiecutter.go_module_path.strip('/').split('/')[1] }}"
 
     reviewers:
-      - "{{ cookiecutter.go_module_path.split('/')[1] }}"
+      - "{{ cookiecutter.go_module_path.strip('/').split('/')[1] }}"
 
     # Check for updates to dependencies once a week - Saturday
     schedule:

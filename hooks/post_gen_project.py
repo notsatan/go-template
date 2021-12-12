@@ -6,7 +6,7 @@ from pathlib import Path
 from sys import exit
 from typing import Callable, List, Optional, Any
 
-# Contains path to the project directory - i.e. {{cookiecutter.project_name}}
+# Contains path to the project directory - i.e. {{cookiecutter.project_name.strip()}}
 CUR_DIR = Path.cwd().absolute()
 
 
