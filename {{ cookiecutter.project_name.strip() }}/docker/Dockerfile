@@ -32,17 +32,17 @@ RUN go get -d -v ./...
 RUN go install -v ./...
 
 # Generate a compiled binary
-RUN go build -v -o {{ cookiecutter.project_name }}
+RUN go build -v -o {{ cookiecutter.project_name.strip() }}
 
 # Create a new directory named `dist` in the parent, and copy the generated binary in it
-RUN mkdir -p ../dist/ && cp -v ./{{ cookiecutter.project_name }} ../dist
+RUN mkdir -p ../dist/ && cp -v ./{{ cookiecutter.project_name.strip() }} ../dist
 
 
 # Create a new base image
 FROM scratch
 
 # Copy the generated binary from previous image to this one
-COPY --from=builder /dist/{{ cookiecutter.project_name }} .
+COPY --from=builder /dist/{{ cookiecutter.project_name.strip() }} .
 
 # Run the binary
-CMD ["/{{ cookiecutter.project_name }}"]
+CMD ["/{{ cookiecutter.project_name.strip() }}"]

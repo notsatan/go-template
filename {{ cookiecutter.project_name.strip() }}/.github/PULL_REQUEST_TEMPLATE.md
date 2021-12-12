@@ -20,8 +20,8 @@
 ## Checklist
 
 <!-- Mark with an `x` all the checkboxes that apply (like `[x]`) -->
-- [ ] I've read the [`Code of Conduct`]({{ cookiecutter.go_module_path }}/blob/master/CODE_OF_CONDUCT.md) and this pull request adheres to it.
-- [ ] I've read the [`CONTRIBUTING.md`]({{ cookiecutter.go_module_path }}/blob/master/CONTRIBUTING.md) guide.
+- [ ] I've read the [`Code of Conduct`](../blob/{{ cookiecutter.base_branch }}/CODE_OF_CONDUCT.md) and this pull request adheres to it.
+- [ ] I've read the [`CONTRIBUTING.md`](../blob/{{ cookiecutter.base_branch }}/CONTRIBUTING.md) guide.
 - [ ] I've ran the complete test-suite using `make test-suite`, and it passed with no errors.
 - [ ] I've written new tests for all changes introduced in this pull request (where applicable).
 - [ ] I've documented any new methods/structures/packages added.
@@ -41,7 +41,7 @@
 
 1. Test functionality using the criteria above.
 2. Offer tips for efficiency, feedback on best practices, and possible alternative approaches.
-3. For shorter, "quick" PRs, use your best judgement on #​2.
+3. For shorter, "quick" PRs, use your best judgement on previous point.
 4. Use a collaborative approach and provide resources and/or context where appropriate.
 5. Provide screenshots/grabs where appropriate to show findings during review.
 6. In case of a potential bug in PR, be sure to add steps to reproduce the issue (where applicable)

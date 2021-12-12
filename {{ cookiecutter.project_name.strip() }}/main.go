@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"{{ cookiecutter.go_module_path }}/src"
+	"{{ cookiecutter.go_module_path.strip('/') }}/src"
 )
 
 // title contains the name of the project
-const title = "{{ cookiecutter.project_name }}"
+const title = "{{ cookiecutter.project_name.strip() }}"
 
 /*
 ProjectName returns the value of `title` string
