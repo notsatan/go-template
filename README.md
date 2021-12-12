@@ -75,6 +75,8 @@ you started with the essentials you'll need for your next Go project ;)
  - Files such as `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`
         will be generated automatically.
  - [Semantic Versions][semver-link] specifications with [`Release Drafter`][release-drafter]
+ - Fork friendly - projects generated through *go-template* use relative links where
+        possible, ensuring links in forks point to the fork itself instead of your project!
 
 ## :microscope: Setup Instructions
 

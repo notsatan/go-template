@@ -324,6 +324,18 @@ for repositories. [Dependabot][dependabot-link] will implicitly create the
 
 The remaining labels can be created as needed!
 {%- endif %}
+
+### Generating Binaries
+
+To generate binaries for multiple OS/architectures, simply run
+
+```sh
+bash build-script.sh
+```
+
+The command will generate binaries for Linux, Windows and Mac targetting multiple
+architectures at once! The binaries, once generated will be stored in the `bin`
+directory inside the project directory.
 <br>
 
 
