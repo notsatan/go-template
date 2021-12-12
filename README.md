@@ -75,8 +75,9 @@ you started with the essentials you'll need for your next Go project ;)
  - Files such as `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`
         will be generated automatically.
  - [Semantic Versions][semver-link] specifications with [`Release Drafter`][release-drafter]
- - Fork friendly - projects generated through *go-template* use relative links where
-        possible, ensuring links in forks point to the fork itself instead of your project!
+ - Fork friendly - projects generated through *go-template* use relative links. Forks
+        link to themselves instead of your project -- even for *soft forks*, ensuring
+        there are no confused users!
 
 ## :microscope: Setup Instructions
 
@@ -282,6 +283,21 @@ To fix this, once the project is generated, simply edit the
 [`dependabot.yml`][dependabot-config-file] file and modify the values under
 `reviewers` and `assignees`.
 
+## :heavy_check_mark: TODOs
+
+Stuff that's in the plan - contributions are welcome! Please raise an issue **before**
+you start working (especially if you're picking up one of these tasks);
+
+ - [ ] Integrating [goreleaser][goreleaser-link] - Automated releases sure sounds cool!
+ - [ ] Minor improvements to [`.golangci.yml`][golangci-file] - The generated file
+       should be enough to give users (developers) a rough idea of configs.
+ - [ ] Possible integration with [mkdocs-material][mkdocs-link] for projects that need
+       a documentation. Should definitely be optional though!
+ - [ ] Add [Earthly][earthly-link]? Not sure if this is needed in the first place.
+ - [ ] Option to generate private projects - Shield badges and *<stuff I can't think of
+       right now>* need the project to be public. Would be good to have an option
+       to make it easy for people to generate private projects using *go-template*!
+
 ## :trophy: Acknowledgements
 
 The main inspiration behind this template was `TezRomacH`'s
@@ -302,6 +318,7 @@ for more details.
 [semver-link]: https://semver.org
 [go-docs]: https://golang.org/doc
 [codecov-link]: http://codecov.com
+[earthly-link]: https://earthly.dev
 [precommit-link]: https://pre-commit.com
 [dupl-link]: https://github.com/mibk/dupl
 [dependabot-link]: https://dependabot.com
@@ -320,7 +337,9 @@ for more details.
 [cookiecutter-docs]: https://cookiecutter.readthedocs.io
 [codecov-docs]: https://docs.codecov.com/docs#basic-usage
 [codecov-yaml]: https://docs.codecov.com/docs/codecov-yaml
+[goreleaser-link]: https://github.com/goreleaser/goreleaser
 [golangci-install]: https://golangci-lint.run/usage/install
+[mkdocs-link]: https://github.com/squidfunk/mkdocs-material
 [cookiecutter-link]: https://github.com/cookiecutter/cookiecutter
 [golangci-configs]: https://golangci-lint.run/usage/configuration
 [goimports-link]: https://pkg.go.dev/golang.org/x/tools/cmd/goimports
