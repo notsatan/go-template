@@ -308,6 +308,22 @@ The lack of any similar templates for Go was a large part of why I decided to *G
 and make one myself. And of course, huge appreciation for [Cookiecutter][cookiecutter-link],
 without which such a flexible template would not be possible.
 
+## :2nd_place_medal: Similar Projects
+
+Other similar project(s) that you might want to check out;
+
+ - [cookiecutter-golang](https://github.com/lacion/cookiecutter-golang)
+ - [go-template-edge](https://github.com/enoti-bg/go-template-edge)
+ - [go-cli](https://github.com/carlmjohnson/go-cli)
+
+P.S. If you know of any project similar to *go-template* (that isn't listed here), let
+me know and I'll be happy to list it ;)
+
+Forks of *go-template* are welcome as well - given they have significant changes
+compared to upstream!
+
+> P.P.S. The emoji for this section fits well :p
+
 ## :shield: License
 
 ![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)
