@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Inspired by https://github.com/HarukaNetwork/HarukaX/blob/master/build_cross.sh
 # This script will generate binaries for the multiple OS/architectures, and a file
 # containing SHA256 checksums for the binaries
 

@@ -2,12 +2,12 @@
 
 <div align="center">
 
-![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)
-![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)
-![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)
-![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)
-![Go v1.16+](https://img.shields.io/badge/Go-%20v1.16-black?style=for-the-badge&logo=go)
-![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20🚀-red?style=for-the-badge&logo=probot)
+[![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)][black-action]
+[![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)][gomod-file]
+[![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)][project-license]
+[![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][project-precommit]
+[![Go v1.16+](https://img.shields.io/badge/Go-%20v1.16-black?style=for-the-badge&logo=go)][go-releases]
+[![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20🚀-red?style=for-the-badge&logo=probot)][makefile-file]
 
 A bleeding-edge Go project generator for your next project :wink:
 
@@ -75,6 +75,9 @@ you started with the essentials you'll need for your next Go project ;)
  - Files such as `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md`
         will be generated automatically.
  - [Semantic Versions][semver-link] specifications with [`Release Drafter`][release-drafter]
+ - Fork friendly - projects generated through *go-template* use relative links. Forks
+        link to themselves instead of your project -- even for *soft forks*, ensuring
+        there are no confused users!
 
 ## :microscope: Setup Instructions
 
@@ -280,6 +283,23 @@ To fix this, once the project is generated, simply edit the
 [`dependabot.yml`][dependabot-config-file] file and modify the values under
 `reviewers` and `assignees`.
 
+## :heavy_check_mark: TODOs
+
+Stuff that's in the plan - contributions are welcome! Please raise an issue **before**
+you start working (especially if you're picking up one of these tasks);
+
+ - [ ] Integrating [goreleaser][goreleaser-link] - Automated releases sure sounds cool!
+ - [ ] Minor improvements to [`.golangci.yml`][golangci-file] - The generated file
+       should be enough to give users (developers) a rough idea of configs.
+ - [ ] Possible integration with [mkdocs-material][mkdocs-link] for projects that need
+       a documentation. Should definitely be optional though!
+ - [ ] Add [Earthly][earthly-link]? Not sure if this is needed in the first place.
+ - [ ] Customize [build-script.sh][build-script-file] to generate binaries/executables
+       for selective OSes
+ - [ ] Option to generate private projects - Shield badges and *<stuff I can't think of
+       right now>* need the project to be public. Would be good to have an option
+       to make it easy for people to generate private projects using *go-template*!
+
 ## :trophy: Acknowledgements
 
 The main inspiration behind this template was `TezRomacH`'s
@@ -290,6 +310,22 @@ The lack of any similar templates for Go was a large part of why I decided to *G
 and make one myself. And of course, huge appreciation for [Cookiecutter][cookiecutter-link],
 without which such a flexible template would not be possible.
 
+## :2nd_place_medal: Similar Projects
+
+Other similar project(s) that you might want to check out;
+
+ - [cookiecutter-golang](https://github.com/lacion/cookiecutter-golang)
+ - [go-template-edge](https://github.com/enoti-bg/go-template-edge)
+ - [go-cli](https://github.com/carlmjohnson/go-cli)
+
+P.S. If you know of any project similar to *go-template* (that isn't listed here), let
+me know and I'll be happy to list it ;)
+
+Forks of *go-template* are welcome as well - given they have significant changes
+compared to upstream!
+
+> P.P.S. The emoji for this section fits well :p
+
 ## :shield: License
 
 ![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)
@@ -297,18 +333,23 @@ without which such a flexible template would not be possible.
 This project is licensed under the terms of the `MIT` license. See [LICENSE](./LICENSE)
 for more details.
 
+[project-license]: ./LICENSE
 [semver-link]: https://semver.org
 [go-docs]: https://golang.org/doc
 [codecov-link]: http://codecov.com
+[earthly-link]: https://earthly.dev
 [precommit-link]: https://pre-commit.com
 [dupl-link]: https://github.com/mibk/dupl
 [dependabot-link]: https://dependabot.com
 [gofmt-link]: https://pkg.go.dev/cmd/gofmt
 [golangci-link]: https://golangci-lint.run
 [gci-link]: https://github.com/daixiang0/gci
+[project-precommit]: ./.pre-commit-config.yaml
+[go-releases]: https://go.dev/doc/devel/release
 [gosec-link]: https://github.com/securego/gosec
 [gofumpt-link]: https://github.com/mvdan/gofumpt
 [gocyclo-link]: https://github.com/fzipp/gocyclo
+[black-action]: ../../actions/workflows/black.yml
 [golangci-usage]: https://golangci-lint.run/usage
 [effective-go]: https://golang.org/doc/effective_go
 [github-actions]: https://help.github.com/en/actions
@@ -318,28 +359,31 @@ for more details.
 [cookiecutter-docs]: https://cookiecutter.readthedocs.io
 [codecov-docs]: https://docs.codecov.com/docs#basic-usage
 [codecov-yaml]: https://docs.codecov.com/docs/codecov-yaml
+[goreleaser-link]: https://github.com/goreleaser/goreleaser
 [golangci-install]: https://golangci-lint.run/usage/install
+[mkdocs-link]: https://github.com/squidfunk/mkdocs-material
 [cookiecutter-link]: https://github.com/cookiecutter/cookiecutter
 [golangci-configs]: https://golangci-lint.run/usage/configuration
 [goimports-link]: https://pkg.go.dev/golang.org/x/tools/cmd/goimports
 [python-template]: https://github.com/TezRomacH/python-package-template
 [release-drafter]: https://github.com/marketplace/actions/release-drafter
 [uber-style-guide]: https://github.com/uber-go/guide/blob/master/style.md
+[gomod-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/go.mod
 [code-review-comments]: https://github.com/golang/go/wiki/CodeReviewComments
 [stylecheck-link]: https://github.com/dominikh/go-tools/tree/master/stylecheck
-[makefile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/Makefile
+[makefile-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/Makefile
 [multistage-builds]: https://docs.docker.com/develop/develop-images/multistage-build
-[gitignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.gitignore
+[gitignore-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.gitignore
 [shades-of-go]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang
-[golangci-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.golangci.yml
-[editorconfig-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.editorconfig
-[dockerignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.dockerignore
-[workflows-dir]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/workflows
-[build-script-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/build-script.sh
-[dockerfile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/docker/Dockerfile
-[issue-templates]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/ISSUE_TEMPLATE
-[pr-template]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
-[dependabot-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/dependabot.yml
-[precommit-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.pre-commit-config.yaml
-[release-drafter-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/release-drafter.yml
+[golangci-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.golangci.yml
+[editorconfig-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.editorconfig
+[dockerignore-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.dockerignore
+[workflows-dir]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/workflows
+[build-script-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/build-script.sh
+[dockerfile-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/docker/Dockerfile
+[issue-templates]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/ISSUE_TEMPLATE
+[pr-template]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
+[dependabot-config-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/dependabot.yml
+[precommit-config-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.pre-commit-config.yaml
+[release-drafter-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/release-drafter.yml
 [creating-secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
