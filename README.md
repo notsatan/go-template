@@ -2,12 +2,12 @@
 
 <div align="center">
 
-![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)
-![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)
-![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)
-![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)
-![Go v1.16+](https://img.shields.io/badge/Go-%20v1.16-black?style=for-the-badge&logo=go)
-![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20🚀-red?style=for-the-badge&logo=probot)
+[![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)][black-action]
+[![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)][gomod-file]
+[![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)][project-license]
+[![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][project-precommit]
+[![Go v1.16+](https://img.shields.io/badge/Go-%20v1.16-black?style=for-the-badge&logo=go)][go-releases]
+[![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20🚀-red?style=for-the-badge&logo=probot)][makefile-file]
 
 A bleeding-edge Go project generator for your next project :wink:
 
@@ -333,6 +333,7 @@ compared to upstream!
 This project is licensed under the terms of the `MIT` license. See [LICENSE](./LICENSE)
 for more details.
 
+[project-license]: ./LICENSE
 [semver-link]: https://semver.org
 [go-docs]: https://golang.org/doc
 [codecov-link]: http://codecov.com
@@ -343,9 +344,12 @@ for more details.
 [gofmt-link]: https://pkg.go.dev/cmd/gofmt
 [golangci-link]: https://golangci-lint.run
 [gci-link]: https://github.com/daixiang0/gci
+[project-precommit]: ./.pre-commit-config.yaml
+[go-releases]: https://go.dev/doc/devel/release
 [gosec-link]: https://github.com/securego/gosec
 [gofumpt-link]: https://github.com/mvdan/gofumpt
 [gocyclo-link]: https://github.com/fzipp/gocyclo
+[black-action]: ../../actions/workflows/black.yml
 [golangci-usage]: https://golangci-lint.run/usage
 [effective-go]: https://golang.org/doc/effective_go
 [github-actions]: https://help.github.com/en/actions
@@ -364,6 +368,7 @@ for more details.
 [python-template]: https://github.com/TezRomacH/python-package-template
 [release-drafter]: https://github.com/marketplace/actions/release-drafter
 [uber-style-guide]: https://github.com/uber-go/guide/blob/master/style.md
+[gomod-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/go.mod
 [code-review-comments]: https://github.com/golang/go/wiki/CodeReviewComments
 [stylecheck-link]: https://github.com/dominikh/go-tools/tree/master/stylecheck
 [makefile-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/Makefile
