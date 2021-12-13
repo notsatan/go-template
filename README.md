@@ -294,6 +294,8 @@ you start working (especially if you're picking up one of these tasks);
  - [ ] Possible integration with [mkdocs-material][mkdocs-link] for projects that need
        a documentation. Should definitely be optional though!
  - [ ] Add [Earthly][earthly-link]? Not sure if this is needed in the first place.
+ - [ ] Customize [build-script.sh][build-script-file] to generate binaries/executables
+       for selective OSes
  - [ ] Option to generate private projects - Shield badges and *<stuff I can't think of
        right now>* need the project to be public. Would be good to have an option
        to make it easy for people to generate private projects using *go-template*!
@@ -364,19 +366,19 @@ for more details.
 [uber-style-guide]: https://github.com/uber-go/guide/blob/master/style.md
 [code-review-comments]: https://github.com/golang/go/wiki/CodeReviewComments
 [stylecheck-link]: https://github.com/dominikh/go-tools/tree/master/stylecheck
-[makefile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/Makefile
+[makefile-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/Makefile
 [multistage-builds]: https://docs.docker.com/develop/develop-images/multistage-build
-[gitignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.gitignore
+[gitignore-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.gitignore
 [shades-of-go]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang
-[golangci-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.golangci.yml
-[editorconfig-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.editorconfig
-[dockerignore-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.dockerignore
-[workflows-dir]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/workflows
-[build-script-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/build-script.sh
-[dockerfile-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/docker/Dockerfile
-[issue-templates]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/ISSUE_TEMPLATE
-[pr-template]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
-[dependabot-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/dependabot.yml
-[precommit-config-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.pre-commit-config.yaml
-[release-drafter-file]: ../../tree/master/%7B%7Bcookiecutter.project_name.strip()%7D%7D/.github/release-drafter.yml
+[golangci-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.golangci.yml
+[editorconfig-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.editorconfig
+[dockerignore-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.dockerignore
+[workflows-dir]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/workflows
+[build-script-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/build-script.sh
+[dockerfile-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/docker/Dockerfile
+[issue-templates]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/ISSUE_TEMPLATE
+[pr-template]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/PULL_REQUEST_TEMPLATE.md
+[dependabot-config-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/dependabot.yml
+[precommit-config-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.pre-commit-config.yaml
+[release-drafter-file]: ./%7B%7B%20cookiecutter.project_name.strip()%20%7D%7D/.github/release-drafter.yml
 [creating-secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
