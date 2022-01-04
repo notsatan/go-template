@@ -146,7 +146,7 @@ make local-setup
 ```
 
 Once the Makefile command is done with the setup, be sure to install
-[GolangCI-Lint][golangci-usage] (this won't be handled by the Makefile command).
+[GolangCI-Lint][golangci-install] (this won't be handled by the Makefile command).
 GolangCI is used to run a bunch of linters on your code, when integrated with the
 pre-commit config file, this would ensure multiple linters are automatically run on
 your codebase with every commit - and optionally every push to the `remote` if you
@@ -350,7 +350,6 @@ for more details.
 [gofumpt-link]: https://github.com/mvdan/gofumpt
 [gocyclo-link]: https://github.com/fzipp/gocyclo
 [black-action]: ../../actions/workflows/black.yml
-[golangci-usage]: https://golangci-lint.run/usage
 [effective-go]: https://golang.org/doc/effective_go
 [github-actions]: https://help.github.com/en/actions
 [gocognit-link]: https://github.com/uudashr/gocognit
