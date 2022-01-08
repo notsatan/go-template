@@ -36,11 +36,19 @@ __pycache__/
 # Temporary directories in the project
 bin
 tmp
-.golangci.yml
-.goreleaser.yml
-.editorconfig
-.pre-commit-config.yaml
+
+./docker/
+./coverage/
+
 build-script.sh
 codecov.yml
+.editorconfig
+.golangci.yml
+.goreleaser.yml
+.pre-commit-config.yaml
+cookiecutter-config-file.yml
+
+Makefile
 LICENSE
 README.md
+CONTRIBUTING.md
