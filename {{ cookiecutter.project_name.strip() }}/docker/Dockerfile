@@ -48,4 +48,4 @@ FROM ${final_image}
 COPY --from=builder /dist/{{ cookiecutter.project_name.strip() }} .
 
 # Run the binary
-CMD ["/{{ cookiecutter.project_name.strip() }}"]
+CMD ["./{{ cookiecutter.project_name.strip() }}"]
