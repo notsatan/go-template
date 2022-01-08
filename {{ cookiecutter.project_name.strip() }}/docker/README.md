@@ -37,7 +37,7 @@ make docker-gen IMAGE=<some_name> VERSION=<version_number>
 ```
 
 
-## Usage
+### Running docker image
 
 Once you've created a docker container, to run the container, use
 
@@ -66,7 +66,7 @@ make clean-docker IMAGE={{ cookiecutter.project_name.strip() }} VERSION=latest
 ```
 
 
-## Debug Image
+## Debug Images
 
 The [dockerfile](./Dockerfile) for *{{ cookiecutter.project_name.strip() }}* uses
 [multistage builds][multistage] to generate light-weight docker images.
