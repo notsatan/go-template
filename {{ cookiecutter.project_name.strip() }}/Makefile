@@ -44,9 +44,7 @@ local-setup:
 	echo "  >  Installing pre-commit"
 	pip install --upgrade pre-commit &> /dev/null
 	pre-commit install
-
-
-{%+ endif -%}
+{%- endif +%}
 
 
 # Will install missing dependencies
@@ -112,11 +110,22 @@ run:
 
 
 .PHONY: docker-gen
-## `docker-gen`: Create a new docker image for the project
+## `docker-gen`: Create a production docker image for `{{ cookiecutter.project_name.strip() }}`
 docker-gen:
 	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
 	docker build --rm \
+		--build-arg final_image=scratch \
 		-t $(IMAGE):$(VERSION) . \
+		-f ./docker/Dockerfile
+
+
+.PHONY: docker-debug
+## `docker-debug`: Create debug-friendly docker images for `{{ cookiecutter.project_name.strip() }}`
+docker-debug:
+	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
+	docker build --rm=false \
+		--build-arg final_image=golang:{{ cookiecutter.go_version }} \
+		-t $(IMAGE)-debug:$(VERSION) . \
 		-f ./docker/Dockerfile
 
 
@@ -128,9 +137,9 @@ clean-docker:
 
 
 ## :
-##  NOTE: All docker-related commands can contain `IMAGE`
-## : and `VERSION` parameters to modify the docker
+##  NOTE: All docker-related commands can use `IMAGE`
+## : and `VERSION` variables to modify the docker
 ## : image being targeted
 ## :
 ## : Example;
-## :     `make docker-gen NAME=go-template_v2 IMAGE=2.1.0`
+## :     `make docker-gen IMAGE=new_project VERSION=3.15`
