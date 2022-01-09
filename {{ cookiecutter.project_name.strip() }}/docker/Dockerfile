@@ -27,12 +27,14 @@ ENV GO111MODULE=on \
 RUN mkdir -p /build
 WORKDIR /build
 
-# Copy code into the work directory
-COPY . .
+# Selectively copy the requirements into the image - using `*go.sum` prevents failure
+# if the file does not exist!
+COPY go.mod *go.sum ./
 
-# Fetch all required modules, build and install them.
-RUN go get -d -v ./...
-RUN go install -v ./...
+# Fetch all requirements and install them
+RUN go mod download
+
+COPY . .
 
 # Generate a compiled binary
 RUN go build -v -o {{ cookiecutter.project_name.strip() }}
