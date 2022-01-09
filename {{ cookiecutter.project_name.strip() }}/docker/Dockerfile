@@ -24,8 +24,7 @@ ENV GO111MODULE=on \
     GOARCH=amd64
 
 # Create a build directory if one does not exist, and use it as the work directory
-RUN mkdir -p /build
-WORKDIR /build
+WORKDIR "/src/__{{ cookiecutter.project_name.strip() }}__"
 
 # Selectively copy the requirements into the image - using `*go.sum` prevents failure
 # if the file does not exist!
@@ -34,6 +33,7 @@ COPY go.mod *go.sum ./
 # Fetch all requirements and install them
 RUN go mod download
 
+# Copy remaining project files
 COPY . .
 
 # Generate a compiled binary
