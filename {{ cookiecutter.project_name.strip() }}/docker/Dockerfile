@@ -43,6 +43,8 @@ RUN go build -v -o "../__{{ cookiecutter.project_name.strip() }}_build_output__"
 # Second stage - `scratch` for production builds, `golang:{{ cookiecutter.go_version }}` for debug builds
 FROM ${final_image}
 
+WORKDIR "/builds"
+
 # Copy generated binary from previous image to this one - rename for readability
 COPY --from=builder "/src/__{{ cookiecutter.project_name.strip() }}-build_output__" \
     "./{{ cookiecutter.project_name.strip() }}"
