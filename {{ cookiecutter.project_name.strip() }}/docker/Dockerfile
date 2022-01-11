@@ -24,28 +24,30 @@ ENV GO111MODULE=on \
     GOARCH=amd64
 
 # Create a build directory if one does not exist, and use it as the work directory
-RUN mkdir -p /build
-WORKDIR /build
+WORKDIR "/src/__{{ cookiecutter.project_name.strip() }}__"
 
-# Copy code into the work directory
+# Selectively copy the requirements into the image - using `*go.sum` prevents failure
+# if the file does not exist!
+COPY go.mod *go.sum ./
+
+# Fetch all requirements and install them
+RUN go mod download
+
+# Copy remaining project files
 COPY . .
 
-# Fetch all required modules, build and install them.
-RUN go get -d -v ./...
-RUN go install -v ./...
-
-# Generate a compiled binary
-RUN go build -v -o {{ cookiecutter.project_name.strip() }}
-
-# Create a new directory named `dist` in the parent, and copy the generated binary in it
-RUN mkdir -p ../dist/ && cp -v ./{{ cookiecutter.project_name.strip() }} ../dist
+# Generate a binary -- custom name to avoid collisions with existing files/directories
+RUN go build -v -o "../__{{ cookiecutter.project_name.strip() }}_build_output__"
 
 
-# Second stage - `scratch` for production builds, and `golang:{{ cookiecutter.go_version }}` for debug builds
+# Second stage - `scratch` for production builds, `golang:{{ cookiecutter.go_version }}` for debug builds
 FROM ${final_image}
 
-# Copy the generated binary from previous image to this one
-COPY --from=builder /dist/{{ cookiecutter.project_name.strip() }} .
+WORKDIR "/builds"
+
+# Copy generated binary from previous image to this one - rename for readability
+COPY --from=builder "/src/__{{ cookiecutter.project_name.strip() }}_build_output__" \
+    "./{{ cookiecutter.project_name.strip() }}"
 
 # Run the binary
-CMD ["/{{ cookiecutter.project_name.strip() }}"]
+CMD ["./{{ cookiecutter.project_name.strip() }}"]

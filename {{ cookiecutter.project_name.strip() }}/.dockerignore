@@ -26,8 +26,8 @@ __pycache__/
 *.so
 
 # Virtual environments
+venv
 .venv
-../venv
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -36,11 +36,21 @@ __pycache__/
 # Temporary directories in the project
 bin
 tmp
-.golangci.yml
-.goreleaser.yml
-.editorconfig
-.pre-commit-config.yaml
+
+./docker/
+./coverage/
+
 build-script.sh
 codecov.yml
+.editorconfig
+.golangci.yml
+.goreleaser.yml
+.pre-commit-config.yaml
+cookiecutter-config-file.yml
+
+Makefile
 LICENSE
 README.md
+CONTRIBUTING.md
+SECURITY.md
+CODE_OF_CONDUCT.md
