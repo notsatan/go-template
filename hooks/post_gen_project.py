@@ -2,6 +2,7 @@ import os
 import re
 import shutil
 
+import textwrap
 from pathlib import Path
 from sys import exit
 from typing import Callable, List, Optional, Any
@@ -135,6 +136,46 @@ def check_email_provided():
         os.remove(deletable_file)
 
 
+def print_final_instructions():
+    """
+    Simply prints final instructions for users to follow once they generate a project
+    using this template!
+    """
+
+    message = """
+    ====================================================================================
+
+    Your project `{{ cookiecutter.project_name.strip() }}` is ready!
+
+    It is suggested to go through the generated `README` for detailed instructions on
+    how to use the tools that come with `go-template`! The following is a *brief*
+    overview of steps to push code to remote.
+
+    1) Move to project directory, and initialize a git repository:
+        $ cd {{ cookiecutter.project_name.strip() }} && git init
+
+    2) Run codestyle:
+        $ make codestyle
+
+    3) Run linters and codestyle checkers
+        $ make lint
+
+    4) Run the complete test-suite:
+        $ make test
+
+    7) Upload initial code to git:
+        $ git add -a
+        $ git commit -m "Initial commit!"
+        $ git remote add origin https://{{ cookiecutter.go_module_path.strip('/') }}.git
+        $ git push -u origin --all
+
+    If you have any suggestions, or encounter any issue, please raise an issue;
+        https://github.com/notsatan/go-template
+    """
+
+    print(textwrap.dedent(message))
+
+
 runners: Callable[[Optional[Any]], None] = [
     lincese_generator,
     create_temp_directories,
@@ -142,6 +183,7 @@ runners: Callable[[Optional[Any]], None] = [
     disable_github_features,
     remove_precommit,
     check_email_provided,
+    print_final_instructions,
 ]
 
 for runner in runners:
