@@ -363,11 +363,9 @@ The remaining labels can be created as needed!
 
 <div align="center"><br>
 
-[![go-template](https://img.shields.io/badge/go--template-v1.0.0-black?style=for-the-badge&logo=go)][go-template-link]
-[![Cookiecutter Badge](https://img.shields.io/badge/Cookiecutter-v1.7.3-blue?style=for-the-badge&logo=cookiecutter)][cookiecutter-link]
+`{{ cookiecutter.project_name.strip() }}` is powered by a template generated using [`go-template`][go-template-link]
 
-This project was generated with [go-template][go-template-link] generator and
-[cookiecutter :cookie:][cookiecutter-link]
+[![go-template](https://img.shields.io/badge/go--template-v1.0.0-black?style=for-the-badge&logo=go)][go-template-link]
 
 </div>
 
