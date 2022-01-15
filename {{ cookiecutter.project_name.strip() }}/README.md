@@ -365,7 +365,7 @@ The remaining labels can be created as needed!
 
 `{{ cookiecutter.project_name.strip() }}` is powered by a template generated using [`go-template`][go-template-link]
 
-[![go-template](https://img.shields.io/badge/go--template-v1.0.0-black?style=for-the-badge&logo=go)][go-template-link]
+[![go-template](https://img.shields.io/badge/go--template-black?style=for-the-badge&logo=go)][go-template-link]
 
 </div>
 

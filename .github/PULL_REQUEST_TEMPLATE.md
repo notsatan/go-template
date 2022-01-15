@@ -32,7 +32,7 @@
 
 1. Test functionality using the criteria above.
 2. Offer tips for efficiency, feedback on best practices, and possible alternative approaches.
-3. For shorter, "quick" PRs, use your best judgement on previous point.
+3. For shorter, "quick" PRs, use your best judgment on the previous point.
 4. Use a collaborative approach and provide resources and/or context where appropriate.
 5. Provide screenshots/grabs where appropriate to show findings during review.
 6. In case of a potential bug in PR, be sure to add steps to reproduce the issue (where applicable)
