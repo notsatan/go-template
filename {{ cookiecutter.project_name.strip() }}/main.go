@@ -45,7 +45,6 @@ func firstCheck() {
 		fmt.Println("(Check 01): Running in `debug` mode!")
 	} else {
 		fmt.Println("\nP.S. Try running a docker build generated with the Makefile :)")
-		os.Exit(0) // skip the second check for non-docker builds
 	}
 }
 
