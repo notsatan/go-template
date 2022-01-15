@@ -49,5 +49,9 @@ WORKDIR "/builds"
 COPY --from=builder "/src/__{{ cookiecutter.project_name.strip() }}_build_output__" \
     "./{{ cookiecutter.project_name.strip() }}"
 
+# Set environment variables to distuinguish between build modes
+ARG build_mode=production
+ENV __BUILD_MODE__=${build_mode}
+
 # Run the binary
 CMD ["./{{ cookiecutter.project_name.strip() }}"]

@@ -115,6 +115,7 @@ docker-gen:
 	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
 	docker build --rm \
 		--build-arg final_image=scratch \
+		--build-arg build_mode=production \
 		-t $(IMAGE):$(VERSION) . \
 		-f ./docker/Dockerfile
 
@@ -125,6 +126,7 @@ docker-debug:
 	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
 	docker build --rm=false \
 		--build-arg final_image=golang:{{ cookiecutter.go_version }} \
+		--build-arg build_mode=debug \
 		-t $(IMAGE)-debug:$(VERSION) . \
 		-f ./docker/Dockerfile
 
