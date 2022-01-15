@@ -34,8 +34,8 @@ func firstCheck() {
 	 * `production_mode` variable exists selectively in production builds - use the
 	 * existence of these variables to detect container build type (and not values)
 	 *
-	 * One of these - `production_mode` or `debug_mode` - is **guaranteed** to exist
-	 * for docker builds generated using the Makefile commands!
+	 * Exactly one of these - `production_mode` or `debug_mode` - is **guaranteed** to
+	 * exist for docker builds generated using the Makefile commands!
 	 */
 
 	if _, ok := os.LookupEnv("production_mode"); ok {
@@ -69,6 +69,7 @@ func secondCheck() {
 		fmt.Println("(Check 02): Running in `debug` mode!")
 
 	default:
+		// Flow ends up here for non-docker builds, or docker builds generated directly
 		fmt.Println("Unknown value detected :(")
 	}
 }
