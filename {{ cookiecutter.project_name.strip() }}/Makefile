@@ -153,4 +153,12 @@ clean-docker:
 ## : image being targeted
 ## :
 ## : Example;
-## :     `make docker-gen IMAGE=new_project VERSION=3.15`
+## :     make docker-gen IMAGE=new_project VERSION=3.15
+## :
+## : Likewise, both the `run` commands can pass runtime
+## : arguments under the `q` arg
+## :
+## : Example;
+## :	`make run q="time --version"`
+## : This is the same as;
+## : 	./{{ cookiecutter.project_name.strip() }} version --help
