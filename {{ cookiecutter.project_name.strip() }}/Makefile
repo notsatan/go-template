@@ -79,25 +79,25 @@ lint:
 .PHONY: test
 ## :
 ## `test`: Run all tests
-test: export TEST_MODE="complete"
+test: export TEST_MODE=complete
 test: --test-runner
 
 
 .PHONY: fast-tests
 ## `fast-tests`: Selectively run fast tests
-fast-tests: export TEST_MODE="fast"
+fast-tests: export TEST_MODE=fast
 fast-tests: --test-runner
 
 
 .PHONY: slow-tests
 ## `slow-tests`: Selectively run slow tests
-slow-tests: export TEST_MODE="slow"
+slow-tests: export TEST_MODE=slow
 slow-tests: --test-runner
 
 
 .PHONY: test-suite
 ## `test-suite`: Check code style, run linters and ALL tests
-test-suite: export TEST_MODE="complete"
+test-suite: export TEST_MODE=complete
 test-suite: lint test
 
 
