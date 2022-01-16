@@ -103,13 +103,15 @@ test-suite: lint test
 
 .PHONY: run
 ## :
-## `run`: Run `{{ cookiecutter.project_name.strip() }}`
-##  : Optional; `make run q="args"` to pass arguments
+## `run`: Run `{{ cookiecutter.project_name.strip() }}` in production mode
+run: export production_mode=production
+run: export __BUILD_MODE__=production
 run:
 	go run main.go $(q)
 
 
 .PHONY: docker-gen
+## :
 ## `docker-gen`: Create a production docker image for `{{ cookiecutter.project_name.strip() }}`
 docker-gen:
 	echo "Building docker image \`$(IMAGE):$(VERSION)\`..."
