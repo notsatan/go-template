@@ -109,6 +109,13 @@ run: export __BUILD_MODE__=production
 run:
 	go run main.go $(q)
 
+.PHONY: run-debug
+## `run-debug`: Run `{{ cookiecutter.project_name.strip() }}` in debug mode
+run-debug: export debug_mode=debug
+run-debug: export __BUILD_MODE__=debug
+run-debug:
+	go run main.go $(q)
+
 
 .PHONY: docker-gen
 ## :
