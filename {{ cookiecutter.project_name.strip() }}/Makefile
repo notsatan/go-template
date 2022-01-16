@@ -160,5 +160,3 @@ clean-docker:
 ## :
 ## : Example;
 ## :	`make run q="time --version"`
-## : This is the same as;
-## : 	./{{ cookiecutter.project_name.strip() }} version --help
