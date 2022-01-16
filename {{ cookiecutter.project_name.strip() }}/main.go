@@ -44,7 +44,7 @@ func firstCheck() {
 		// Could also use a simple `else` statement (above) for docker builds!
 		fmt.Println("(Check 01): Running in `debug` mode!")
 	} else {
-		fmt.Println("\nP.S. Try running a docker build generated with the Makefile :)")
+		fmt.Println("\nP.S. Try running a build generated with the Makefile :)")
 	}
 }
 
@@ -69,6 +69,6 @@ func secondCheck() {
 
 	default:
 		// Flow ends up here for non-docker builds, or docker builds generated directly
-		fmt.Println("Unknown value detected :(")
+		fmt.Println("Non-makefile build detected :(")
 	}
 }
