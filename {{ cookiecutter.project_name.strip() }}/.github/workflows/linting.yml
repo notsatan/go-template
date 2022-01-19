@@ -3,7 +3,7 @@ name: Linter
 on:
   push:
     branches:   # not sure if this is needed
-      - '*'
+      - '**'
   pull_request:
     types: [ opened, reopened ]
 
