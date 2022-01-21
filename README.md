@@ -22,7 +22,7 @@ cookiecutter gh:notsatan/go-template
 ***OR***
 
 ```
-cookiecutter https:github.com/notsatan/go-template
+cookiecutter https://github.com/notsatan/go-template
 ```
 
 And you're good to go! Jump to the [setup](#microscope-setup-instructions) section
