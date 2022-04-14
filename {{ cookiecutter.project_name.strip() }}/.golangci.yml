@@ -99,8 +99,8 @@ linters-settings:
 
   funlen:
     # Force smaller functions with fewer statements - leads to reduced complexity
-    lines: 30
-    statements: 25
+    lines: 45
+    statements: 30
 
   gci:
     # put imports beginning with prefix after 3rd-party packages; only support one
