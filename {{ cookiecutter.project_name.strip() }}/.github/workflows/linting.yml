@@ -39,7 +39,7 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           # Must be specified without patch version: we always use the latest patch version.
-          version: v1.42
+          version: v1.45
 
           # If set to true then the action will use pre-installed Go
           skip-go-installation: true
