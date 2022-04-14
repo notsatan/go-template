@@ -511,6 +511,11 @@ linters:
     - wrapcheck
 
   # Interesting linters - enable if they fit your needs
+  # - maintidx
+  # - varnamelen
+  # - errchkjson
+  # - decorder
+  # - grouper
   # - bodyclose
   # - godot
   # - gochecknoinits
