@@ -37,8 +37,3 @@ repos:
     rev: 2.1.5
     hooks:
       - id: git-check     # check for git conflict markers and whitespace errors - uses git internally
-
-  - repo: https://github.com/golangci/golangci-lint
-    rev: v1.42.1
-    hooks:
-      - id: golangci-lint
