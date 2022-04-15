@@ -28,13 +28,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up cache
-        uses: actions/cache@v2.1.3
-        id: cache
-        with:
-          path: {{ cookiecutter.project_name.strip() }}
-          key: {{ cookiecutter.project_name.strip() }}-{% raw %}${{ hashFiles('go.mod') }}-${{ matrix.go-version }}{% endraw %}
-
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
@@ -42,7 +35,7 @@ jobs:
           version: v1.45
 
           # If set to true then the action will use pre-installed Go
-          skip-go-installation: true
+          skip-go-installation: false
 
           # Optional: golangci-lint command line arguments.
           # args: --issues-exit-code=0
