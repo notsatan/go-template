@@ -1,6 +1,7 @@
 name: Linter
 
 on:
+  workflow_dispatch:
   push:
     branches:   # not sure if this is needed
       - '**'
