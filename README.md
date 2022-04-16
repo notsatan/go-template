@@ -35,7 +35,7 @@ you started with the essentials you'll need for your next Go project ;)
 
 ### Development
 
- - Supports `Go v1.16` and `Go v1.17`
+ - Supports Go `v1.16`, `v1.17` and `v1.18`
  - Automated code formatting with [gofmt][gofmt-link] and [gofumpt][gofumpt-link]
  - Sort imports with [goimports][goimports-link] and [gci][gci-link]
  - Ready to use [pre-commit][precommit-link] setup, complete with a ton of hooks
@@ -58,6 +58,7 @@ you started with the essentials you'll need for your next Go project ;)
 
  - Github Actions with predefined [workflows][workflows-dir] including CI/CD, release
         drafter and *optional* code coverage with [Codecov][codecov-link]
+ - All Github actions can be run manually if needed
  - A simple [Dockerfile][dockerfile-file] with [multi-stage build][multistage-builds]
         to containerize your apps while ensuring smallest possible image sizes
  - Always up-to-date dependencies with [@Dependabot][dependabot-link] - enabled by
@@ -117,19 +118,19 @@ values, and what they are used for
 > These defaults **must** be filled with actual values during the setup!
 <br>
 
-| Parameter                  	| Default Value                     	| Explanation                                                                                                                                                                                    	|
-|----------------------------	|-----------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `project_name`             	| go-template                       	| Name of the project. A directory of this name will be created in the working directory containing the generated project                                                                        	|
-| `project_description`      	| Based on `project_name`           	| A small description of the project, used to generate `GNU` license file, and default readme                                                                                                    	|
-| `go_module_path`           	| *github.com/notsatan/go-template* 	| Complete Go module path for the generated project, use Github path to enable Github specific features                                                                                          	|
-| `license_owner`            	| *notsatan*                        	| Used in `LICENSE` and other files. Can be the name of a person or an organization.                                                                                                             	|
-| `base_branch`              	| `master`                          	| The stable/base branch. Used for build status badges and release-drafter (if you enable Github specific features)                                                                              	|
-| `contact_email`            	| `""`                              	| Email to get in touch with project stakeholders. `CODE_OF_CONDUCT.md` and `SECURITY.md` will be removed if empty. [Why is this needed?](#why-is-my-email-id-needed)                            	|
-| `github_specific_features` 	| **y**                             	| Yes or No (`y` or `n`). Dictates if Github-specific features should be included in the project (issue templates, pipeline, etc). [More Info](#what-does-the-github_specific_features-field-do) 	|
-| `use_codecov`              	| **y**                             	| Yes or No (`y` or `n`). Decides if [Codecov](http://codecov.com) is to be used in the project or not. [Setting up codecov](#how-to-integrate-codecov-for-automated-code-analysis)              	|
-| `use_precommit`            	| **y**                             	| Yes or No (`y` or `n`). Decides if [*pre-commit*](https://pre-commit.com) configs should be included with the generated templates                                                              	|
-| `go_version`               	| `1.17`                            	| The version of Go to use in the project. Can be either `1.16` or `1.17`                                                                                                                        	|
-| `license`                  	| `MIT`                             	| The license you want to use in the generated project. One of `MIT`, `BSD-3`, `GNU GPL v3.0` and `Apache Software License 2.0`                                                                  	|
+| Parameter                  | Default Value                     | Explanation                                                                                                                                                                                    |
+|----------------------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `project_name`             | go-template                       | Name of the project. A directory of this name will be created in the working directory containing the generated project                                                                        |
+| `project_description`      | Based on `project_name`           | A small description of the project, used to generate `GNU` license file, and default readme                                                                                                    |
+| `go_module_path`           | *github.com/notsatan/go-template* | Complete Go module path for the generated project, use Github path to enable Github specific features                                                                                          |
+| `license_owner`            | *notsatan*                        | Used in `LICENSE` and other files. Can be the name of a person or an organization.                                                                                                             |
+| `base_branch`              | `master`                          | The stable/base branch. Used for build status badges and release-drafter (if you enable Github specific features)                                                                              |
+| `contact_email`            | `""`                              | Email to get in touch with project stakeholders. `CODE_OF_CONDUCT.md` and `SECURITY.md` will be removed if empty. [Why is this needed?](#why-is-my-email-id-needed)                            |
+| `github_specific_features` | **y**                             | Yes or No (`y` or `n`). Dictates if Github-specific features should be included in the project (issue templates, pipeline, etc). [More Info](#what-does-the-github_specific_features-field-do) |
+| `use_codecov`              | **y**                             | Yes or No (`y` or `n`). Decides if [Codecov](http://codecov.com) is to be used in the project or not. [Setting up codecov](#how-to-integrate-codecov-for-automated-code-analysis)              |
+| `use_precommit`            | **y**                             | Yes or No (`y` or `n`). Decides if [*pre-commit*](https://pre-commit.com) configs should be included with the generated templates                                                              |
+| `go_version`               | `1.17`                            | The version of Go to use in the project. Can be either `1.16`, `1.17` or `1.18`                                                                                                               |
+| `license`                  | `MIT`                             | The license you want to use in the generated project. One of `MIT`, `BSD-3`, `GNU GPL v3.0` and `Apache Software License 2.0`                                                                  |
 
 All values entered while setting up the Cookiecutter template will be saved in
 `cookiecutter-config-file.yml`, you can refer to them in the generated project :wink:
@@ -194,14 +195,14 @@ Articles and resources which were of great help to me when making this template
 Like all other fields, the `contact_email` field is also optional. You can choose to
 leave this value blank, and the template will work normally.
 
-The main usage for email fields is to generate `CODE_OF_CONDUCT.md` and `SECURITY.md`;
-both of which require people to get in touch with project stakeholders directly, either
-to report a violation of code of conduct, or a security bug!
+The email field is used to generate `CODE_OF_CONDUCT.md` and `SECURITY.md` — both of 
+which require people to get in touch with project stakeholders directly, either to
+report a violation, or a bug!
 
-> **Note:** If you choose to leave the email field blank, both `SECURITY.md` and
-> `CODE_OF_CONDUCT.md` will not be a part of the generated project! Since both of these
-> files require people to get in touch directly, not having an email ID makes these
-> files be redundant. If you still want these files, you can manually add them to the
+> **Note:** If you choose to leave the email field blank, neither `SECURITY.md` nor
+> `CODE_OF_CONDUCT.md` will be generated by the template! Since both of these files
+> require people to get in touch directly, not having an email ID makes these files
+> be redundant. If you still want these files, you can manually add them to the
 > generated project!
 
 #### What does the `github_specific_features` field do?
@@ -209,14 +210,14 @@ to report a violation of code of conduct, or a security bug!
 Not every project generated using this template needs to be hosted on Github. There are
 many other Git hosting-providers out there, each of them as valid as Github.
 
-Despite this, Github still happens to be the most popular code hosting platform - as
-such, projects generated through `go-template` include a lot of features that would
-ensure a very smooth development experience on Github, but would be redundant anywhere
-outside Github. Some examples of this would be Github pipelines, Github actions, issue
+At the same time, Github happens to be the most popular code hosting platform - as such,
+projects generated through `go-template` include a lot of features that would ensure a
+very smooth development experience on Github, but would be redundant anywhere outside
+Github. Some examples of this would be Github pipelines, Github actions, issue
 templates, pull request templates, and more.
 
-In case you choose not to use Github, you can use this field to ensure that the
-generated project does not include any Github-specific files/code.
+In case you do not want to use Github, you can use this field to ensure that the
+generated project is free of Github-specific files/code.
 
 > **Note:** If Github specific features are required, the value of `go_module_path`
 > should be a path to a Github repository (doesn't matter if it exists). This would be
@@ -235,18 +236,15 @@ pipeline will generate a code coverage report everytime tests are run.
 Follow [Codecov Docs][codecov-docs] to activate Codecov for your project repository.
 
 Once you've activated Codecov for your project, you should be able to see the
-`Repository Upload Token`. Copy this token, and add it as a secret to your Github
-repository. Checkout [Creating secrets for a Repository][creating-secrets] for info
-on how to add secrets on Github.
+`Repository Upload Token`. Copy this token, and [add it as a secret][creating-secrets]
+to your Github repository.
 
-For the secret, the name of the secret should be "`CODECOV_TOKEN`" (no spaces,
-copy-paste the string as it is). The value of the secret would be the
-`Repository Upload Token` for this repository obtained from Codecov.
+The name of the secret should be "`CODECOV_TOKEN`" (no spaces, copy-paste the string
+as it is). The value of the secret would be the `Repository Upload Token` obtained from
+Codecov.
 
-Save the secret, you should be able to a secret named `CODECOV_TOKEN` in the
-*Settings > Secrets* section of your project repository. If this field is visible,
-you are done with setting up Codecov, and should be able to see code coverage reports
-the next time you run your CI pipeline.
+Save this secret and you're done with setting up Codecov, code coverage reports should
+be available with the next run of the CI pipeline.
 
 #### How to fix `ValueError: Attempt to enable Github-specific features when module path does not belong to github`?
 

@@ -10,7 +10,8 @@
     "use_precommit": "y",
     "go_version": [
         "1.17",
-        "1.16"
+        "1.16",
+        "1.18"
     ],
     "license": [
         "MIT",
