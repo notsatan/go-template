@@ -14,7 +14,7 @@ categories:
     labels: [bug, bugfix, fix, hotfix]
 
   - title: ':memo: Documentation'
-    labels: [documentation]
+    labels: [documentation, docs]
 
   - title: ':construction: Work in Progress'
     labels: [wip, in-progress, incomplete, partial]
