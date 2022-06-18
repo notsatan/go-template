@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Drafts release notes as Pull Requests are merged into "master"
-      - uses: release-drafter/release-drafter@v5.12.1
+      - uses: release-drafter/release-drafter@v5
         env:
 {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
