@@ -1,4 +1,5 @@
-{% raw %}
+{%- raw -%}
+
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 
@@ -10,13 +11,13 @@ categories:
     labels: [enhancement, feature, update]
 
   - title: ':bug: Bug Fixes'
-    labels: [bug, bugfix, fix, hotfix]
+    labels: [bug, bugfix, fix]
 
   - title: ':memo: Documentation'
-    labels: [documentation]
+    labels: [documentation, docs]
 
   - title: ':construction: Work in Progress'
-    labels: [wip, in-progress, incomplete, partial]
+    labels: [wip, in-progress, incomplete, partial, hotfix]
 
   - title: ':package: Dependencies'
     labels: [dependencies, dependency]
@@ -27,16 +28,25 @@ categories:
   - title: ":robot: CI/CD and Pipelines"
     labels: [build, ci, pipeline]
 
-change-template: '- $TITLE (#$NUMBER) - @$AUTHOR'
+change-template: '- $TITLE — @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
   minor:
     labels: [major]
   patch:
     labels: [patch, minor]
-  default: minor
+  default: patch
 
 template: |
   ## Here's What Changed
 
-  $CHANGES{% endraw %}
+  $CHANGES
+
+  ---
+
+footer: |
+  Current Release: [$RESOLVED_VERSION](../tag/$RESOLVED_VERSION)
+  Previous Release: [$PREVIOUS_TAG](../tag/$PREVIOUS_TAG)
+
+  [Detailed comparison](../../compare/$PREVIOUS_TAG...$RESOLVED_VERSION)
+{%+ endraw -%}
