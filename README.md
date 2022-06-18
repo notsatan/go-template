@@ -195,7 +195,7 @@ Articles and resources which were of great help to me when making this template
 Like all other fields, the `contact_email` field is also optional. You can choose to
 leave this value blank, and the template will work normally.
 
-The email field is used to generate `CODE_OF_CONDUCT.md` and `SECURITY.md` — both of 
+The email field is used to generate `CODE_OF_CONDUCT.md` and `SECURITY.md` — both of
 which require people to get in touch with project stakeholders directly, either to
 report a violation, or a bug!
 
