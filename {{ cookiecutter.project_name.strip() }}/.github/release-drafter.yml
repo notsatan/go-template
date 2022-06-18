@@ -11,13 +11,13 @@ categories:
     labels: [enhancement, feature, update]
 
   - title: ':bug: Bug Fixes'
-    labels: [bug, bugfix, fix, hotfix]
+    labels: [bug, bugfix, fix]
 
   - title: ':memo: Documentation'
     labels: [documentation, docs]
 
   - title: ':construction: Work in Progress'
-    labels: [wip, in-progress, incomplete, partial]
+    labels: [wip, in-progress, incomplete, partial, hotfix]
 
   - title: ':package: Dependencies'
     labels: [dependencies, dependency]
