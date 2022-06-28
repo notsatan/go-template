@@ -14,3 +14,7 @@ coverage/**
 
 # Config file containing values used to generate the Cookiecutter template
 cookiecutter-config-file.yml
+
+# Ignore config files from project root, keeping sample config files
+/configs**
+!/configs.**.sample
