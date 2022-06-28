@@ -117,7 +117,7 @@ Code formatters format your code to match pre-decided conventions. To run automa
 formatters, use the Makefile command
 
 ```sh
-make format-codebase
+make codestyle
 ```
 
 ### Using Code Linters
