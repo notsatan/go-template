@@ -191,7 +191,7 @@ and [all tests](#running-tests) one after the other!
 |     `test`     	| Run **all** tests                                                       	|       NA      	|
 |  `fast-tests`  	| Selectively run *fast* tests                                            	|       NA      	|
 |  `slow-tests`  	| Selectively run *slow* tests                                            	|       NA      	|
-|  `test-suite`  	| Check codestyle, run linters and **tests** tests                        	| golangci-lint 	|
+|  `test-suite`  	| Check codestyle, run linters and **all** tests                        	| golangci-lint 	|
 |      `run`     	| Run *{{ cookiecutter.project_name.strip().strip() }}*                           	|       NA      	|
 |  `docker-gen`  	| Create production docker image for *{{ cookiecutter.project_name.strip().strip() }}* 	|     docker    	|
 |  `docker-debug`  	| Create debug-friendly docker image for *{{ cookiecutter.project_name.strip().strip() }}* 	|     docker    	|
