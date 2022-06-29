@@ -339,16 +339,16 @@ Pull requests once merged, will be classified into categories by
 
 This is managed by the [`release-drafter.yml`][release-drafter-config] config file.
 
-|                   **Label**                   	|      **Title in Releases**      	|
-|:---------------------------------------------:	|:-------------------------------:	|
-| `security`                                    	| :lock: Security                 	|
-| `enhancement`, `feature`,  `update`           	| :rocket: Updates                	|
-| `bug`, `bugfix`, `fix`, `hotfix`              	| :bug: Bug Fixes                 	|
-| `documentation`                               	| :memo: Documentation            	|
-| `wip`, `in-progress`, `incomplete`, `partial` 	| :construction: Work in Progress 	|
-| `dependencies`, `dependency`                  	| :package: Dependencies          	|
-| `refactoring`, `refactor`, `tests`, `testing` 	| :test_tube: Tests and Refactor  	|
-| `build`, `ci`, `pipeline`                     	| :robot: CI/CD and Pipelines     	|
+|                        **Label**                        	|      **Title in Releases**      	|
+|:-------------------------------------------------------:	|:-------------------------------:	|
+|                        `security`                       	|         :lock: Security         	|
+|           `enhancement`, `feature`,  `update`           	|         :rocket: Updates        	|
+|                  `bug`, `bugfix`, `fix`                 	|         :bug: Bug Fixes         	|
+|                 `documentation`, `docs`                 	|       :memo: Documentation      	|
+| `wip`, `in-progress`, `incomplete`, `partial`, `hotfix` 	| :construction: Work in Progress 	|
+|               `dependencies`, `dependency`              	|      :package: Dependencies     	|
+|      `refactoring`, `refactor`, `tests`, `testing`      	|  :test_tube: Tests and Refactor 	|
+|                `build`, `ci`, `pipeline`                	|   :robot: CI/CD and Pipelines   	|
 
 The labels `bug`, `enhancement`, and `documentation` are automatically created by Github
 for repositories. [Dependabot][dependabot-link] will implicitly create the
