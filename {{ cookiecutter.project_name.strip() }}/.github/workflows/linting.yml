@@ -13,9 +13,11 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-    - uses: pre-commit/action@v2.0.3{% endraw %}
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' # Version range or exact version to use
+    - uses: pre-commit/action@v3.0.0{% endraw %}
 
   golangci-lint:
     strategy:
@@ -27,10 +29,10 @@ jobs:
 {% endraw %}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
+        uses: golangci/golangci-lint-action@v3
         with:
           # Must be specified without patch version: we always use the latest patch version.
           version: v1.45
