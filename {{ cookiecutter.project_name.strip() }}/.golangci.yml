@@ -103,9 +103,17 @@ linters-settings:
     statements: 30
 
   gci:
-    # put imports beginning with prefix after 3rd-party packages; only support one
-    # prefix - if not set, uses goimports.local-prefixes
-    local-prefixes: {{ cookiecutter.go_module_path.strip('/') }}
+    no-inline-comments: false
+    no-prefix-comments: false
+
+    # sorts imports with prefix after 3rd-party packages; supports only one prefix - if
+    # not set, uses goimports.local-prefixes
+    sections:
+      - standard # standard packages
+      - default # all other imports that do not fall in any group
+      - prefix({{ cookiecutter.go_module_path.strip('/') }}) # internal imports from `{{ cookiecutter.project_name.strip() }}`
+    section-separators:
+      - newLine
 
   gocognit:
     # minimal code complexity to report, 30 by default (recommended 10-20)
