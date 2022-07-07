@@ -1,3 +1,6 @@
+# This project was generated using a Cookiecutter template:
+#       https://github.com/notsatan/go-template
+
 cookiecutter_inputs:
   project_name: "{{ cookiecutter.project_name.strip() }}"
   go_module_path: "{{ cookiecutter.go_module_path.strip('/') }}"
