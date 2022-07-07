@@ -117,7 +117,7 @@ Code formatters format your code to match pre-decided conventions. To run automa
 formatters, use the Makefile command
 
 ```sh
-make format-codebase
+make codestyle
 ```
 
 ### Using Code Linters
@@ -191,7 +191,7 @@ and [all tests](#running-tests) one after the other!
 |     `test`     	| Run **all** tests                                                       	|       NA      	|
 |  `fast-tests`  	| Selectively run *fast* tests                                            	|       NA      	|
 |  `slow-tests`  	| Selectively run *slow* tests                                            	|       NA      	|
-|  `test-suite`  	| Check codestyle, run linters and **tests** tests                        	| golangci-lint 	|
+|  `test-suite`  	| Check codestyle, run linters and **all** tests                        	| golangci-lint 	|
 |      `run`     	| Run *{{ cookiecutter.project_name.strip().strip() }}*                           	|       NA      	|
 |  `docker-gen`  	| Create production docker image for *{{ cookiecutter.project_name.strip().strip() }}* 	|     docker    	|
 |  `docker-debug`  	| Create debug-friendly docker image for *{{ cookiecutter.project_name.strip().strip() }}* 	|     docker    	|
@@ -339,16 +339,16 @@ Pull requests once merged, will be classified into categories by
 
 This is managed by the [`release-drafter.yml`][release-drafter-config] config file.
 
-|                   **Label**                   	|      **Title in Releases**      	|
-|:---------------------------------------------:	|:-------------------------------:	|
-| `security`                                    	| :lock: Security                 	|
-| `enhancement`, `feature`,  `update`           	| :rocket: Updates                	|
-| `bug`, `bugfix`, `fix`, `hotfix`              	| :bug: Bug Fixes                 	|
-| `documentation`                               	| :memo: Documentation            	|
-| `wip`, `in-progress`, `incomplete`, `partial` 	| :construction: Work in Progress 	|
-| `dependencies`, `dependency`                  	| :package: Dependencies          	|
-| `refactoring`, `refactor`, `tests`, `testing` 	| :test_tube: Tests and Refactor  	|
-| `build`, `ci`, `pipeline`                     	| :robot: CI/CD and Pipelines     	|
+|                        **Label**                        	|      **Title in Releases**      	|
+|:-------------------------------------------------------:	|:-------------------------------:	|
+|                        `security`                       	|         :lock: Security         	|
+|           `enhancement`, `feature`,  `update`           	|         :rocket: Updates        	|
+|                  `bug`, `bugfix`, `fix`                 	|         :bug: Bug Fixes         	|
+|                 `documentation`, `docs`                 	|       :memo: Documentation      	|
+| `wip`, `in-progress`, `incomplete`, `partial`, `hotfix` 	| :construction: Work in Progress 	|
+|               `dependencies`, `dependency`              	|      :package: Dependencies     	|
+|      `refactoring`, `refactor`, `tests`, `testing`      	|  :test_tube: Tests and Refactor 	|
+|                `build`, `ci`, `pipeline`                	|   :robot: CI/CD and Pipelines   	|
 
 The labels `bug`, `enhancement`, and `documentation` are automatically created by Github
 for repositories. [Dependabot][dependabot-link] will implicitly create the
