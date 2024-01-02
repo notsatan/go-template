@@ -29,6 +29,6 @@ repos:
       - id: git-check     # check for git conflict markers and whitespace errors - uses git internally
 
   - repo: https://github.com/psf/black
-    rev: 21.9b0
+    rev: ec91a2b
     hooks:
       - id: black
