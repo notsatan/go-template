@@ -55,6 +55,5 @@ ENV __BUILD_MODE__=${build_mode}
 ENV ${build_mode}_mode=${build_mode}
 # ^^ will be `debug_mode` or `production_mode`
 
-
 # Run the binary
 CMD ["./{{ cookiecutter.project_name.strip() }}"]
