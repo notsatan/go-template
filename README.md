@@ -3,7 +3,7 @@
 <div align="center">
 
 ![A gif displaying `go-template` in action][demo-gif]
-	
+
 [![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)][black-action]
 [![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)][gomod-file]
 [![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)][project-license]
