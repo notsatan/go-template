@@ -7,7 +7,7 @@
 {% if cookiecutter.use_codecov.lower() == 'y' -%}
 [![Code Coverage](https://img.shields.io/codecov/c/{{ cookiecutter.go_module_path.strip('/').replace('.com', '') }}?color=blue&logo=codecov&style=for-the-badge)][github-actions-tests]
 {% endif -%}
-[![Security: bandit](https://img.shields.io/badge/Security-GoSec-lightgrey?style=for-the-badge&logo=springsecurity)](https://github.com/securego/gosec)
+[![Security: GoSec](https://img.shields.io/badge/Security-GoSec-lightgrey?style=for-the-badge&logo=springsecurity)](https://github.com/securego/gosec)
 [![Dependencies Status](https://img.shields.io/badge/Dependencies-Up%20to%20Date-brightgreen?style=for-the-badge&logo=dependabot)][dependabot-pulls]
 [![Semantic Versioning](https://img.shields.io/badge/versioning-semantic-black?style=for-the-badge&logo=semver)][github-releases]
 [![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][precommit-config]
