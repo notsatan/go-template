@@ -407,8 +407,8 @@ linters-settings:
   whitespace:
     # Tool for detection of leading and trailing whitespace - checks for unnecessary
     # newlines at the start and end of functions, if, for, etc.
-    multi-if: true    # Enforces newlines (or comments) after multi-line if statement
-    multi-func: true  # Enforces newlines (or comments) after multi-line functions
+    multi-if: false    # Enforces newlines (or comments) after multi-line if statement
+    multi-func: false  # Enforces newlines (or comments) after multi-line functions
 
   wrapcheck:
     # An array of strings that specify substrings of signatures to ignore.
