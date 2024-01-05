@@ -306,9 +306,9 @@ you start working (especially if you're picking up one of these tasks);
  - [ ] Add [Earthly][earthly-link]? Not sure if this is needed in the first place.
  - [ ] Customize [build-script.sh][build-script-file] to generate binaries/executables
        for selective OSes
- - [ ] Option to generate private projects - Shield badges and *<more stuff>* need the
+ - [x] ~~Option to generate private projects~~ - Shield badges and *<more stuff>* need the
        project to be public. It would be great to have an option to generate private
-       projects using *go-template*!
+       projects using *go-template*! (Accomplished via notsatan/go-template#51)
 
 ## :trophy: Acknowledgements
 
