@@ -9,6 +9,7 @@ cookiecutter_inputs:
   contact_email: "{{ cookiecutter.contact_email }}"
   project_description: "{{ cookiecutter.project_description }}"
   github_specific_features: "{{ cookiecutter.github_specific_features }}"
+  private_project: "{{ cookiecutter.private_project }}"
   use_codecov: "{{ cookiecutter.use_codecov }}"
   use_precommit: "{{ cookiecutter.use_precommit }}"
   go_version: "{{ cookiecutter.go_version }}"
