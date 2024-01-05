@@ -10,10 +10,6 @@ PROJECTNAME="{{ cookiecutter.project_name.strip() }}"
 # List of all Go-files to be processed
 GOFILES=$(wildcard *.go)
 
-# Redirecting error output to a file, acts as logs that can
-# be referenced if needed
-STDERR=/tmp/$(PROJECTNAME)-stderr.txt
-
 # Docker image variables
 IMAGE := $(PROJECTNAME)
 VERSION := latest
