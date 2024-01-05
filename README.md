@@ -32,7 +32,7 @@ directly for quick setup instructions ;)
 
 ## :boom: Features
 
-This is a battries-included [cookiecutter :cookie:][cookiecutter-link] template to get
+This is a batteries-included [cookiecutter :cookie:][cookiecutter-link] template to get
 you started with the essentials you'll need for your next Go project ;)
 
 ### Development
@@ -120,19 +120,20 @@ values, and what they are used for
 > These defaults **must** be filled with actual values during the setup!
 <br>
 
-| Parameter                  | Default Value           | Usage                                                                                                                                                                                          |
-|----------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `project_name`             | `example-project`       | Name of the project. A directory of this name will be created in the current working directory                                                                                                 |
-| `project_description`      | Based on `project_name` | A small description of the project, used to generate `GNU` license file, and default readme                                                                                                    |
-| `go_module_path`           | Based on `project_name` | Complete Go module path for the generated project, use a valid Github URL to enable Github specific features                                                                                   |
-| `license_owner`            | example                 | Used in `LICENSE` and other files. Can be the name of a person or an organization.                                                                                                             |
-| `base_branch`              | `master`                | The stable/base branch. Used for build status badges and release-drafter (if you enable Github specific features)                                                                              |
-| `contact_email`            | `""`                    | Email to get in touch with project stakeholders. `CODE_OF_CONDUCT.md` and `SECURITY.md` will be removed if empty. [Why is this needed?](#why-is-my-email-id-needed)                            |
-| `github_specific_features` | **y**                   | Yes or No (`y` or `n`). Dictates if Github-specific features should be included in the project (issue templates, pipeline, etc). [More Info](#what-does-the-github_specific_features-field-do) |
-| `use_codecov`              | **y**                   | Yes or No (`y` or `n`). Decides if [Codecov](http://codecov.com) is to be used in the project or not. Checkout [Setting up codecov](#how-to-integrate-codecov-for-automated-code-analysis)     |
-| `use_precommit`            | **y**                   | Yes or No (`y` or `n`). Decides if [*pre-commit*](https://pre-commit.com) configs should be included with the generated templates                                                              |
-| `go_version`               | `1.17`                  | The version of Go to use in the project. Can be either `1.16`, `1.17` or `1.18`                                                                                                                |
-| `license`                  | `MIT`                   | The license you want to use in the generated project. One of `MIT`, `BSD-3`, `GNU GPL v3.0` and `Apache Software License 2.0`                                                                  |
+| Parameter                  | Default Value           | Usage                                                                                                                                                                                                 |
+|----------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `project_name`             | `example-project`       | Name of the project. A directory of this name will be created in the current working directory                                                                                                        |
+| `project_description`      | Based on `project_name` | A small description of the project, used to generate `GNU` license file, and default readme                                                                                                           |
+| `go_module_path`           | Based on `project_name` | Complete Go module path for the generated project, use a valid Github URL to enable Github specific features                                                                                          |
+| `license_owner`            | example                 | Used in `LICENSE` and other files. Can be the name of a person or an organization.                                                                                                                    |
+| `base_branch`              | `master`                | The stable/base branch. Used for build status badges and release-drafter (if you enable Github specific features)                                                                                     |
+| `contact_email`            | `""`                    | Email to get in touch with project stakeholders. `CODE_OF_CONDUCT.md` and `SECURITY.md` will be removed if empty. [Why is this needed?](#why-is-my-email-id-needed)                                   |
+| `github_specific_features` | **y**                   | Yes or No (`y` or `n`). Dictates if Github-specific features should be included in the project (issue templates, pipeline, etc). [More Info](#what-does-the-github_specific_features-field-do)        |
+| `private_project`          | **n**                   | Yes or No (`y` or `n`). Inquires if the project repository generated will be publicly accessible, or private. [Why is this needed?](#why-do-i-need-to-inform-if-the-generated-project-will-be-public) |
+| `use_codecov`              | **y**                   | Yes or No (`y` or `n`). Decides if [Codecov](http://codecov.com) is to be used in the project or not. Checkout [Setting up codecov](#how-to-integrate-codecov-for-automated-code-analysis)            |
+| `use_precommit`            | **y**                   | Yes or No (`y` or `n`). Decides if [*pre-commit*](https://pre-commit.com) configs should be included with the generated templates                                                                     |
+| `go_version`               | `1.17`                  | The version of Go to use in the project. Can be either `1.16`, `1.17` or `1.18`                                                                                                                       |
+| `license`                  | `MIT`                   | The license you want to use in the generated project. One of `MIT`, `BSD-3`, `GNU GPL v3.0` and `Apache Software License 2.0`                                                                         |
 
 All values entered while setting up the Cookiecutter template will be saved in
 `cookiecutter-config-file.yml`, you can refer to them in the generated project :wink:
@@ -224,6 +225,15 @@ can use this field to ensure the generated project is free of Github-specific fi
 > **Note:** If Github specific features are required, the value of `go_module_path`
 > should be a path to a Github repository (does not matter if it exists). This would be
 > used for `dependabot.yml`
+
+#### Why do I need to inform if the generated project will be public?
+
+As of now, the only change(s) being made based on this are all restricted to the README
+file of generated projects. This is required as some badges used in the README require
+the project to be accessible by `shields.io` — the service behind these badges!
+
+For private projects, these badges will either be removed or modified, to prevent cases
+where badges break down for private repositories!
 
 #### How to integrate Codecov for automated code analysis?
 
