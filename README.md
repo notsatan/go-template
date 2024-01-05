@@ -8,7 +8,7 @@
 [![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)][gomod-file]
 [![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)][project-license]
 [![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][project-precommit]
-[![Go v1.19+](https://img.shields.io/badge/Go-%20v1.19-black?style=for-the-badge&logo=go)][go-releases]
+[![Go v1.19+](https://img.shields.io/badge/Go-%20v1.19+-black?style=for-the-badge&logo=go)][go-releases]
 [![Makefile Included](https://img.shields.io/badge/Makefile-Supported%20🚀-red?style=for-the-badge&logo=probot)][makefile-file]
 
 A bleeding-edge Go project generator for your next project :wink:
