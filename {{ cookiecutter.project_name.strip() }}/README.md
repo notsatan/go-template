@@ -3,7 +3,9 @@
 {% if cookiecutter.github_specific_features.lower() == 'y' -%}
 <div align="center">
 
+{% if cookiecutter.private_project.lower() == "n" -%}
 [![Build Status](https://img.shields.io/github/checks-status/{{ cookiecutter.go_module_path.strip('/').replace('github.com/', '') }}/{{ cookiecutter.base_branch.strip() }}?color=black&style=for-the-badge&logo=github)][github-actions]
+{% endif -%}
 {% if cookiecutter.use_codecov.lower() == 'y' -%}
 [![Code Coverage](https://img.shields.io/codecov/c/{{ cookiecutter.go_module_path.strip('/').replace('.com', '') }}?color=blue&logo=codecov&style=for-the-badge)][github-actions-tests]
 {% endif -%}
@@ -11,7 +13,11 @@
 [![Dependencies Status](https://img.shields.io/badge/Dependencies-Up%20to%20Date-brightgreen?style=for-the-badge&logo=dependabot)][dependabot-pulls]
 [![Semantic Versioning](https://img.shields.io/badge/versioning-semantic-black?style=for-the-badge&logo=semver)][github-releases]
 [![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][precommit-config]
-[![License](https://img.shields.io/github/license/{{ cookiecutter.go_module_path.strip('/').replace('github.com/', '') }}?color=red&style=for-the-badge)][project-license]
+{% if cookiecutter.private_project.lower() == "n" -%}
+[![License](https://img.shields.io/github/license/{{ cookiecutter.go_module_path.strip('/').replace('github.com/', '') }}?color=red&style=for-the-badge&logo=unlicense)][project-license]
+{% else -%}
+[![License](https://img.shields.io/badge/License-{{ cookiecutter.license.replace('-', '--').replace('Software License ', '').replace(' ', '%20') }}-lightgrey?color=red&style=for-the-badge&logo=unlicense)][project-license]
+{% endif -%}
 [![Go v{{ cookiecutter.go_version }}](https://img.shields.io/badge/Go-%20v{{ cookiecutter.go_version }}-black?style=for-the-badge&logo=go)][gomod-file]
 
 {{ cookiecutter.project_description }}

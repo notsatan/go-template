@@ -6,6 +6,7 @@
     "base_branch": "master",
     "contact_email": "",
     "github_specific_features": "y",
+    "private_project": "n",
     "use_codecov": "y",
     "use_precommit": "y",
     "go_version": [

@@ -18,7 +18,7 @@ temp_directories: List[str] = [
 ]
 
 
-def lincese_generator():
+def license_generator():
     """
     Generates the appropriate license for the template from the given options
     """
@@ -177,7 +177,7 @@ def print_final_instructions():
 
 
 runners: Callable[[Optional[Any]], None] = [
-    lincese_generator,
+    license_generator,
     create_temp_directories,
     remove_codecov,
     disable_github_features,
