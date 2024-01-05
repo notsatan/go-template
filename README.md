@@ -308,7 +308,7 @@ you start working (especially if you're picking up one of these tasks);
        for selective OSes
  - [x] ~~Option to generate private projects~~ - Shield badges and *<more stuff>* need the
        project to be public. It would be great to have an option to generate private
-       projects using *go-template*! (Accomplished via notsatan/go-template#51)
+       projects using *go-template*! (Accomplished via notsatan/go-template#52)
 
 ## :trophy: Acknowledgements
 
