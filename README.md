@@ -4,7 +4,7 @@
 
 ![A gif displaying `go-template` in action][demo-gif]
 
-[![Build status](https://img.shields.io/github/workflow/status/notsatan/go-template/Black?style=for-the-badge&logo=github)][black-action]
+[![Build status](https://img.shields.io/github/actions/workflow/status/notsatan/go-template/black.yml?style=for-the-badge&logo=github)][black-action]
 [![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge&logo=dependabot)][gomod-file]
 [![MIT License](https://img.shields.io/github/license/notsatan/go-template?color=red&style=for-the-badge)][project-license]
 [![Pre-Commit Enabled](https://img.shields.io/badge/Pre--Commit-Enabled-blue?style=for-the-badge&logo=pre-commit)][project-precommit]
