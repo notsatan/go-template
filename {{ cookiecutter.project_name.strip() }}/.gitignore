@@ -2,6 +2,9 @@
 .vscode/**
 .idea/**
 
+# Mac only
+.DS_Store/**
+
 # Ignore directories containing binaries generated and other stuff
 tmp/**
 bin/**
